@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='App'>
       <AppHeader />
-      <Space>
+      <Space className='Appbody'>
         <SideMenu></SideMenu>
         <PageContent></PageContent>
       </Space>

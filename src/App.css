@@ -14,7 +14,12 @@
   padding: 10px 20px 5px 12px;
   border-bottom: 1px solid rgb(0, 0, 0, 0.15);
 }
-
+.Appbody{
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .SideMenu {
   background-color: #282c34;
 }
@@ -27,6 +32,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.15);
 }
 
 @media (prefers-reduced-motion: no-preference) {
