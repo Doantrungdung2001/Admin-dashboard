@@ -3,18 +3,13 @@ import { BellFilled, TeamOutlined } from '@ant-design/icons';
 function AppHeader() {
     return (
         <div className="AppHeader">
-            <Typography.Title style={{ color: 'white' }}>CafeMapp100</Typography.Title>
-            <Image 
-                width={40}
-                src="https://i.pinimg.com/originals/20/f1/2d/20f12dc9d9a9ed7f397e9fc43abbdffe.jpg"
-            >
-            </Image>
+            <Typography.Title style={{ color: 'white' }}>CafeMap100</Typography.Title>
             <Space>
                 <Badge count = {20}>
-                    <BellFilled style={{ fontSize: 24, color: 'white' }} />
+                    <BellFilled style={{ fontSize: 30, color: 'white',padding: "10px" }} />
                 </Badge>
                 <Badge>
-                    <TeamOutlined style={{ fontSize: 25, color: 'white' }}/>
+                    <TeamOutlined style={{ fontSize: 30, color: 'white', padding: "15px" }}/>
                 </Badge>
             </Space>
         </div>

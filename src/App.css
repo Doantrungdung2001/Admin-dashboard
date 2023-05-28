@@ -21,11 +21,11 @@
   align-items: flex-start;
 }
 .SideMenu {
-  background-color: #282c34;
+  background-color: #101a2e;
 }
 
 .PageContent {
-  background-color: #282c34;
+  padding: 40px ;
 }
 .AppFooter {
   height: 50px;

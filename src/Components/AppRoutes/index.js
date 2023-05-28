@@ -1,7 +1,7 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "../../Page/Dashboard";
 import Manager from "../../Page/Manager";
-
+import Confirm from "../../Page/Confirm";
 function AppRoutes() {
     return (
         <Routes>

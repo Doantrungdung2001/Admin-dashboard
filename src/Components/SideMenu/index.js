@@ -3,9 +3,11 @@ import {Menu} from "antd"
 import { useNavigate } from "react-router-dom";
 function SideMenu() {
     const navigate = useNavigate();
+    const menuStyle = { backgroundColor: 'rgb(4, 4, 82)',color: 'white',display: 'flex', flexDirection: 'column', minHeight: '100vh' };
     return (
         <div className="SideMenu">
             <Menu
+                style={menuStyle}
                 onClick={(item)=>{
                     //item.key
                     navigate(item.key);
