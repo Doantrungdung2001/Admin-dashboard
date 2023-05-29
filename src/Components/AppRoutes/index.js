@@ -2,14 +2,25 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../../Page/Dashboard";
 import Manager from "../../Page/Manager";
 import Confirm from "../../Page/Confirm";
+import AdminLayout from "../../Page/AdminLayout";
+import UserLayout from "../../Page/UserLayout";
+import UserHomePage from "../../Page/UserHomepage";
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<Dashboard/>}></Route>
-            <Route path="/manage" element={<Manager/>}></Route>
-            <Route path="/confirm" element={<Confirm/>}></Route>
+            {/* Define user routes here */}
+            <Route path="/" element={<UserLayout />}>
+                <Route index element={<UserHomePage />} />
+            </Route>
+
+            {/* Define admin routes here */}
+            <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<Dashboard />} />
+                <Route path="/admin/manage" element={<Manager />} />
+                <Route path="/admin/confirm" element={<Confirm />} />
+            </Route>
         </Routes>
-    )
+    );
 }
 
 export default AppRoutes;
