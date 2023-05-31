@@ -1,4 +1,4 @@
-import { Badge, Image, Space, Typography } from 'antd';
+import { Badge, Space, Typography } from 'antd';
 import { BellFilled, TeamOutlined } from '@ant-design/icons';
 function AppHeader() {
     return (

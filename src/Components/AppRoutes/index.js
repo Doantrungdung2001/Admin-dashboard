@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "../../Page/Dashboard";
-import Manager from "../../Page/Manager";
+import Manager from "../../Page/Manager/index";
+import Content from "../../Page/Manager/content";
 import Confirm from "../../Page/Confirm";
 import AdminLayout from "../../Page/AdminLayout";
 import UserLayout from "../../Page/UserLayout";
-import UserHomePage from "../../Page/UserHomepage";
+import UserHomePage from "../../Page/UserLayout";
 function AppRoutes() {
     return (
         <Routes>
@@ -17,6 +18,7 @@ function AppRoutes() {
             <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<Dashboard />} />
                 <Route path="/admin/manage" element={<Manager />} />
+                <Route path="/admin/manage/content" element={<Content />} />
                 <Route path="/admin/confirm" element={<Confirm />} />
             </Route>
         </Routes>
