@@ -12,7 +12,7 @@ function SideMenu() {
         color: "white",
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
+        minHeight: "90vh",
     };
     return (
         <div className="SideMenu">
