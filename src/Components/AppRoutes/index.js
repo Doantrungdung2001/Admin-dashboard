@@ -4,13 +4,13 @@ import Manager from "../../Page/Manager";
 import Confirm from "../../Page/Confirm";
 import AdminLayout from "../../Page/AdminLayout";
 import UserLayout from "../../Page/UserLayout";
-import UserHomePage from "../../Page/UserHomepage";
+import UserHomepage from "../../Page/UserHomepage";
 function AppRoutes() {
     return (
         <Routes>
             {/* Define user routes here */}
             <Route path="/" element={<UserLayout />}>
-                <Route index element={<UserHomePage />} />
+                <Route index element={<UserHomepage />} />
             </Route>
 
             {/* Define admin routes here */}
