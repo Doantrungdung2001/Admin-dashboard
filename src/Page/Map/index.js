@@ -19,7 +19,7 @@ let center = {
 function Map() {
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        googleMapsApiKey: "AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE",
     });
 
     const [map, setMap] = React.useState(null);
@@ -59,7 +59,10 @@ function Map() {
                 onUnmount={onUnmount}
             >
                 <Marker
-                    position={center}
+                    position={{
+                        lat: center.lat,
+                        lng: center.lng,
+                    }}
                     icon={{
                         url: user,
                         scaledSize: new window.google.maps.Size(60, 60),
