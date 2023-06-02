@@ -1,8 +1,10 @@
 import React from "react";
 // import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { Button } from "antd";
-import store from "../store.json";
+import store from "../../store.json";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import cafe from "../../Images/cafe.png";
+import user from "../../Images/user.png";
 
 const containerStyle = {
     width: "400px",
@@ -52,18 +54,27 @@ function Map() {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
+                zoom={5}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
             >
-                {/* Child components, such as markers, info windows, etc. */}
-                {/* <Marker position={center} /> */}
+                <Marker
+                    position={center}
+                    icon={{
+                        url: user,
+                        scaledSize: new window.google.maps.Size(60, 60),
+                    }}
+                />
                 {store.map((data) => (
                     <Marker
                         key={data.id}
                         position={{
                             lat: data.coordinates.latitude,
                             lng: data.coordinates.longitude,
+                        }}
+                        icon={{
+                            url: cafe,
+                            scaledSize: new window.google.maps.Size(60, 60),
                         }}
                     />
                 ))}
