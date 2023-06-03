@@ -1,0 +1,49 @@
+.header{
+    height: var(--header-height);
+    background-color: #fff;
+}
+
+.header-block{
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: transparent;
+}
+
+.input-area{
+    width: 70%;
+    // border: 1px solid #000 !important;
+    // background-color: #ccc !important;
+   
+}
+
+.HomePageHeader_input-search__ie3DP{
+    
+}
+
+.input-search{
+   display: block;
+   border-radius: 0px;
+   border-color: #fff;
+}
+
+.information{
+//   width: 20%;
+  position: absolute;
+  right: 0px;
+}
+
+.header-btn{
+    background-color: #000;
+    color: #fff;
+}
+
+.header-icon{
+    font-size: 17px;
+}
+
+.down-icon{
+   margin-left: 1px;
+   font-size: 10px;
+}

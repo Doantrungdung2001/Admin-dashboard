@@ -7,8 +7,8 @@ import cafe from "../../Images/cafe.png";
 import user from "../../Images/user.png";
 
 const containerStyle = {
-    width: "400px",
-    height: "400px",
+    width: "580px",
+    height: "580px",
 };
 
 let center = {
