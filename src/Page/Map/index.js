@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { Button } from "antd";
 import store from "../../store.json";
@@ -12,26 +12,39 @@ const containerStyle = {
 };
 
 let center = {
-    lat: 20,
-    lng: 105,
+    lat: 21.028511,
+    lng: 105.804817,
 };
 
 function Map() {
+    const [currentPosition, setCurrentPosition] = useState({
+        lat: 0,
+        lng: 0,
+    });
+
+    const [selectedPosition, setSelectedPosition] = useState({
+        lat: 0,
+        lng: 0,
+    });
+
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
-        googleMapsApiKey: "AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE",
+        // googleMapsApiKey: "AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE",
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
     });
 
     const [map, setMap] = React.useState(null);
 
-    const onLoad = React.useCallback(function callback(map) {
-        // This is just an example of getting and using the map instance!!! don't just blindly copy!
-        const bounds = new window.google.maps.LatLngBounds(center);
-        map.fitBounds(bounds);
+    const onLoad = React.useCallback(
+        function callback(map) {
+            // This is just an example of getting and using the map instance!!! don't just blindly copy!
+            const bounds = new window.google.maps.LatLngBounds(currentPosition);
+            map.fitBounds(bounds);
 
-        setMap(map);
-        console.log(center);
-    }, []);
+            setMap(map);
+        },
+        [currentPosition]
+    );
 
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null);
@@ -39,13 +52,25 @@ function Map() {
 
     const handleMove = () => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
-            center = {
+            console.log(posiiton.coords);
+            setCurrentPosition({
                 lat: posiiton.coords.latitude,
                 lng: posiiton.coords.longitude,
-            };
+            });
         }, null);
         onLoad(map);
     };
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((posiiton) => {
+            console.log(posiiton.coords);
+            setCurrentPosition({
+                lat: posiiton.coords.latitude,
+                lng: posiiton.coords.longitude,
+            });
+        }, null);
+    }, []);
+
     return isLoaded ? (
         <div>
             <Button type="primary" onClick={handleMove}>
@@ -53,15 +78,18 @@ function Map() {
             </Button>
             <GoogleMap
                 mapContainerStyle={containerStyle}
-                center={center}
-                zoom={5}
+                center={currentPosition}
+                zoom={10}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
+                onClick={(e) => {
+                    console.log(e.latLng.lat(), e.latLng.lng());
+                }}
             >
                 <Marker
                     position={{
-                        lat: center.lat,
-                        lng: center.lng,
+                        lat: currentPosition.lat,
+                        lng: currentPosition.lng,
                     }}
                     icon={{
                         url: user,
