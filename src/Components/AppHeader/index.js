@@ -11,6 +11,7 @@ function AppHeader() {
                 <Badge>
                     <TeamOutlined style={{ fontSize: 30, color: 'white', padding: "15px" }}/>
                 </Badge>
+                abcdefgh
             </Space>
         </div>
     )

@@ -1,0 +1,37 @@
+.nav{
+    height: var(--header-height);
+    background-color: #fff;
+}
+
+.nav-area{
+    height: 75%;
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.history-btn {
+    padding: 0px 32px !important;
+    border-radius: 16px !important;
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 1px #ccc solid !important;
+} 
+
+.down-icon{
+   margin-left: 4px;
+   font-size: 10px;
+}
+
+.list-btn{
+    padding: 0px 16px !important;
+    border-radius: 16px !important;
+    background-color: #ccc !important;
+}
+
+.arrange-btn{
+    padding: 0px 16px !important;
+    border-radius: 16px !important;
+}
