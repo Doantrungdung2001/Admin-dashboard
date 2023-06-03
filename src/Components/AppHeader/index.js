@@ -1,4 +1,4 @@
-import { Badge, Image, Space, Typography } from 'antd';
+import { Badge, Space, Typography } from 'antd';
 import { BellFilled, TeamOutlined } from '@ant-design/icons';
 function AppHeader() {
     return (
@@ -11,6 +11,7 @@ function AppHeader() {
                 <Badge>
                     <TeamOutlined style={{ fontSize: 30, color: 'white', padding: "15px" }}/>
                 </Badge>
+                abcdefgh
             </Space>
         </div>
     )
