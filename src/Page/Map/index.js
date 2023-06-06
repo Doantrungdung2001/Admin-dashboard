@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { Button } from 'antd';
 import store from '../../store.json';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-// import cafe from '../../Images/cafe.png';
 import user from '../../Images/user.png';
 import { CafeMarker } from './CafeMarker';
 
@@ -18,15 +16,11 @@ function Map() {
         lng: 0,
     });
 
-    // const [selectedPosition, setSelectedPosition] = useState({
-    //     lat: 0,
-    //     lng: 0,
-    // });
-
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         // googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        language: 'ja',
     });
 
     const [map, setMap] = React.useState(null);
