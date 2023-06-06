@@ -3,17 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import store from '../../store.json';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-import cafe from '../../Images/cafe.png';
+// import cafe from '../../Images/cafe.png';
 import user from '../../Images/user.png';
+import { CafeMarker } from './CafeMarker';
 
 const containerStyle = {
     width: '580px',
     height: '580px',
-};
-
-let center = {
-    lat: 21.028511,
-    lng: 105.804817,
 };
 
 function Map() {
@@ -97,17 +93,7 @@ function Map() {
                     }}
                 />
                 {store.map((data) => (
-                    <Marker
-                        key={data.id}
-                        position={{
-                            lat: data.coordinates.latitude,
-                            lng: data.coordinates.longitude,
-                        }}
-                        icon={{
-                            url: cafe,
-                            scaledSize: new window.google.maps.Size(60, 60),
-                        }}
-                    />
+                    <CafeMarker key={data.id} data={data} />
                 ))}
             </GoogleMap>
         </div>
