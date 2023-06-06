@@ -3,6 +3,7 @@ import busy from '../../Images/busy.png';
 import free from '../../Images/free.png';
 import cafe from '../../Images/cafe.png';
 import { useState } from 'react';
+import './style.scss';
 export const CafeMarker = ({ data }) => {
     let [showInfoWindow, setShowInfoWindow] = useState(false);
     return (
@@ -19,9 +20,13 @@ export const CafeMarker = ({ data }) => {
         >
             {showInfoWindow && (
                 <InfoWindow>
-                    <div>
+                    <div className="marker-tooltip">
                         <img src={data.picture ? data.picture : cafe} alt="cafe" />
-                        <p>{data.name}</p>
+                        <div>
+                            <h5>{data.name}</h5>
+                            <p>{data.address}</p>
+                            <p>69 Guest</p>
+                        </div>
                     </div>
                 </InfoWindow>
             )}

@@ -1,0 +1,11 @@
+.marker-tooltip {
+    display: flex;
+    flex-direction: row;
+    img {
+        width: 70px;
+        height: 70px;
+    }
+    h5 {
+        font-size: 15px;
+    }
+}
