@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { Button } from "antd";
-import store from "../../store.json";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import cafe from "../../Images/cafe.png";
-import user from "../../Images/user.png";
+import { Button } from 'antd';
+import store from '../../store.json';
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import cafe from '../../Images/cafe.png';
+import user from '../../Images/user.png';
 
 const containerStyle = {
-    width: "580px",
-    height: "580px",
+    width: '580px',
+    height: '580px',
 };
 
 let center = {
@@ -28,9 +28,9 @@ function Map() {
     });
 
     const { isLoaded } = useJsApiLoader({
-        id: "google-map-script",
-        // googleMapsApiKey: "AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE",
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        id: 'google-map-script',
+        googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
+        // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
     });
 
     const [map, setMap] = React.useState(null);
@@ -43,7 +43,7 @@ function Map() {
 
             setMap(map);
         },
-        [currentPosition]
+        [currentPosition],
     );
 
     const onUnmount = React.useCallback(function callback(map) {
