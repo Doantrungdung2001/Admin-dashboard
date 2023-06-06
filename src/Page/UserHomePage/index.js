@@ -25,7 +25,7 @@ function UserHomePage() {
                                                 alt="Shop image"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">Highland Coffee</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
@@ -121,7 +121,7 @@ function UserHomePage() {
                                                 alt="Shop image"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">Highland Coffee</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
