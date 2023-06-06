@@ -1,163 +1,162 @@
 [
     {
-      "id": 1,
-      "name": "Decentralized modular neural-net",
-      "address": "03917 Northfield Plaza, Ho Chi Minh City",
-      "business_hour": "6am-22:30pm",
-      "air_condition": true,
-      "parking_lot": true,
-      "introduction": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
-      "picture": "https://robohash.org/1.png?size=50x50&set=set1",
-      "owner_id": 1,
-      "coordinates": {
-        "longitude": 106.695942,
-        "latitude": 10.800364
-      },
-      "max_capacity": 59
+        "id": 1,
+        "name": "Highland Coffee",
+        "address": "03917 Northfield Plaza, Ho Chi Minh City",
+        "business_hour": "6am-22:30pm",
+        "air_condition": true,
+        "parking_lot": true,
+        "introduction": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 1,
+        "coordinates": {
+            "longitude": 106.695942,
+            "latitude": 10.800364
+        },
+        "max_capacity": 59
     },
     {
-      "id": 2,
-      "name": "Robust multi-threaded algorithm",
-      "address": "45792 Hudson Circle, Hanoi",
-      "business_hour": "7am-22:30pm",
-      "air_condition": false,
-      "parking_lot": true,
-      "introduction": "Nullam sit amet turpis elementum ligula vehicula consequat.",
-      "picture": "https://robohash.org/2.png?size=50x50&set=set1",
-      "owner_id": 2,
-      "coordinates": {
-        "longitude": 105.847490,
-        "latitude": 21.007955
-      },
-      "max_capacity": 35
+        "id": 2,
+        "name": "Highland Coffee",
+        "address": "45792 Hudson Circle, Hanoi",
+        "business_hour": "7am-22:30pm",
+        "air_condition": false,
+        "parking_lot": true,
+        "introduction": "Nullam sit amet turpis elementum ligula vehicula consequat.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 2,
+        "coordinates": {
+            "longitude": 105.84749,
+            "latitude": 21.007955
+        },
+        "max_capacity": 35
     },
     {
-      "id": 3,
-      "name": "Distributed cloud-based framework",
-      "address": "5674 Le Loi, Da Nang",
-      "business_hour": "6am-22:30pm",
-      "air_condition": true,
-      "parking_lot": false,
-      "introduction": "Sed ullamcorper, lectus sit amet dapibus auctor, lacus massa varius mauris, ut vulputate massa elit id diam.",
-      "picture": "https://robohash.org/3.png?size=50x50&set=set1",
-      "owner_id": 3,
-      "coordinates": {
-        "longitude": 108.216827,
-        "latitude": 16.060716
-      },
-      "max_capacity": 40
+        "id": 3,
+        "name": "Highland Coffee",
+        "address": "Back Khoa, Ha Noi",
+        "business_hour": "6am-22:30pm",
+        "air_condition": true,
+        "parking_lot": false,
+        "introduction": "Sed ullamcorper, lectus sit amet dapibus auctor, lacus massa varius mauris, ut vulputate massa elit id diam.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 3,
+        "coordinates": {
+            "longitude": 105.84590077400208,
+            "latitude": 21.004868630779416
+        },
+        "max_capacity": 40
     },
     {
-      "id": 4,
-      "name": "Intuitive user-friendly interface",
-      "address": "876 Nguyen Hue, Ho Chi Minh City",
-      "business_hour": "6am-22:30pm",
-      "air_condition": false,
-      "parking_lot": true,
-      "introduction": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed aliquam.",
-      "picture": "https://robohash.org/4.png?size=50x50&set=set1",
-      "owner_id": 4,
-      "coordinates": {
-        "longitude": 106.697174,
-        "latitude": 10.777376
-      },
-      "max_capacity": 50
+        "id": 4,
+        "name": "Magic Coffee",
+        "address": "Back Khoa, Ha Noi",
+        "business_hour": "6am-22:30pm",
+        "air_condition": false,
+        "parking_lot": true,
+        "introduction": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed aliquam.",
+        "picture": "https://elitetour.com.vn/files/images/Blogs/xofa-cafe-bistro.png",
+        "owner_id": 4,
+        "coordinates": {
+            "longitude": 105.84697857680416,
+            "latitude": 21.003873975415438
+        },
+        "max_capacity": 50
     },
     {
-      "id": 5,
-      "name": "Smart data analytics platform",
-      "address": "345 Nguyen Van Binh, Da Nang",
-      "business_hour": "6am-22:30pm",
-      "air_condition": true,
-      "parking_lot": false,
-      "introduction": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-      "picture": "https://robohash.org/5.png?size=50x50&set=set1",
-      "owner_id": 5,
-      "coordinates": {
-        "longitude": 108.209425,
-        "latitude": 16.060047
-      },
-      "max_capacity": 60
+        "id": 5,
+        "name": "Highland Coffee",
+        "address": "345 Nguyen Van Binh, Da Nang",
+        "business_hour": "6am-22:30pm",
+        "air_condition": true,
+        "parking_lot": false,
+        "introduction": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 5,
+        "coordinates": {
+            "longitude": 108.209425,
+            "latitude": 16.060047
+        },
+        "max_capacity": 60
     },
     {
-      "id": 6,
-      "name": "Advanced machine learning algorithms",
-      "address": "7293 Tran Phu, Hanoi",
-      "business_hour": "7am-22:30pm",
-      "air_condition": true,
-      "parking_lot": true,
-      "introduction": "Praesent faucibus aliquet velit. Morbi nec metus.",
-      "picture": "https://robohash.org/6.png?size=50x50&set=set1",
-      "owner_id": 6,
-      "coordinates": {
-        "longitude": 105.831529,
-        "latitude": 21.028318
-      },
-      "max_capacity": 45
+        "id": 6,
+        "name": "Highland Coffee",
+        "address": "7293 Tran Phu, Hanoi",
+        "business_hour": "7am-22:30pm",
+        "air_condition": true,
+        "parking_lot": true,
+        "introduction": "Praesent faucibus aliquet velit. Morbi nec metus.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 6,
+        "coordinates": {
+            "longitude": 105.831529,
+            "latitude": 21.028318
+        },
+        "max_capacity": 45
     },
     {
-      "id": 7,
-      "name": "Secure encrypted data storage",
-      "address": "123 Tran Hung Dao, Ho Chi Minh City",
-      "business_hour": "6am-22:30pm",
-      "air_condition": false,
-      "parking_lot": false,
-      "introduction": "Aliquam erat volutpat. In congue.",
-      "picture": "https://robohash.org/7.png?size=50x50&set=set1",
-      "owner_id": 7,
-      "coordinates": {
-        "longitude": 106.699419,
-        "latitude": 10.772981
-      },
-      "max_capacity": 55
+        "id": 7,
+        "name": "Highland Coffee",
+        "address": "123 Tran Hung Dao, Ho Chi Minh City",
+        "business_hour": "6am-22:30pm",
+        "air_condition": false,
+        "parking_lot": false,
+        "introduction": "Aliquam erat volutpat. In congue.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 7,
+        "coordinates": {
+            "longitude": 106.699419,
+            "latitude": 10.772981
+        },
+        "max_capacity": 55
     },
     {
-      "id": 8,
-      "name": "Efficient data processing engine",
-      "address": "456 Tran Phu, Da Nang",
-      "business_hour": "6am-22:30pm",
-      "air_condition": true,
-      "parking_lot": true,
-      "introduction": "Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
-      "picture": "https://robohash.org/8.png?size=50x50&set=set1",
-      "owner_id": 8,
-      "coordinates": {
-        "longitude": 108.214406,
-        "latitude": 16.070160
-      },
-      "max_capacity": 70
+        "id": 8,
+        "name": "Highland Coffee",
+        "address": "456 Tran Phu, Da Nang",
+        "business_hour": "6am-22:30pm",
+        "air_condition": true,
+        "parking_lot": true,
+        "introduction": "Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 8,
+        "coordinates": {
+            "longitude": 108.214406,
+            "latitude": 16.07016
+        },
+        "max_capacity": 70
     },
     {
-      "id": 9,
-      "name": "Real-time analytics dashboard",
-      "address": "678 Nguyen Thi Minh Khai, Ho Chi Minh City",
-      "business_hour": "6am-22:30pm",
-      "air_condition": false,
-      "parking_lot": true,
-      "introduction": "Curabitur gravida nisi at nibh.",
-      "picture": "https://robohash.org/9.png?size=50x50&set=set1",
-      "owner_id": 9,
-      "coordinates": {
-        "longitude": 106.693920,
-        "latitude": 10.777305
-      },
-      "max_capacity": 30
+        "id": 9,
+        "name": "Highland Coffee",
+        "address": "678 Nguyen Thi Minh Khai, Ho Chi Minh City",
+        "business_hour": "6am-22:30pm",
+        "air_condition": false,
+        "parking_lot": true,
+        "introduction": "Curabitur gravida nisi at nibh.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 9,
+        "coordinates": {
+            "longitude": 106.69392,
+            "latitude": 10.777305
+        },
+        "max_capacity": 30
     },
     {
-      "id": 10,
-      "name": "Intelligent recommendation engine",
-      "address": "876 Tran Quoc Toan, Hanoi",
-      "business_hour": "6am-22:30pm",
-      "air_condition": true,
-      "parking_lot": false,
-      "introduction": "Donec quis orci eget orci vehicula condimentum.",
-      "picture": "https://robohash.org/10.png?size=50x50&set=set1",
-      "owner_id": 10,
-      "coordinates": {
-        "longitude": 105.834647,
-        "latitude": 21.021166
-      },
-      "max_capacity": 25
+        "id": 10,
+        "name": "Highland Coffee",
+        "address": "876 Tran Quoc Toan, Hanoi",
+        "business_hour": "6am-22:30pm",
+        "air_condition": true,
+        "parking_lot": false,
+        "introduction": "Donec quis orci eget orci vehicula condimentum.",
+        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "owner_id": 10,
+        "coordinates": {
+            "longitude": 105.834647,
+            "latitude": 21.021166
+        },
+        "max_capacity": 25
     }
-  ]
-  
+]

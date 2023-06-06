@@ -32,7 +32,7 @@ function UserHomePage() {
                                                 </span>
                                             </div>
                                             <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{
@@ -56,14 +56,14 @@ function UserHomePage() {
                                                 alt="Shop image"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">Highland Coffee</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{
@@ -90,14 +90,14 @@ function UserHomePage() {
                                                 alt="Shop image"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">Highland Coffee</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{
@@ -128,7 +128,7 @@ function UserHomePage() {
                                                 </span>
                                             </div>
                                             <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
-                                            <div class="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{

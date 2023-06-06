@@ -18,15 +18,15 @@ function Map() {
         lng: 0,
     });
 
-    const [selectedPosition, setSelectedPosition] = useState({
-        lat: 0,
-        lng: 0,
-    });
+    // const [selectedPosition, setSelectedPosition] = useState({
+    //     lat: 0,
+    //     lng: 0,
+    // });
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
-        // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        // googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
     });
 
     const [map, setMap] = React.useState(null);
@@ -59,10 +59,14 @@ function Map() {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
-            console.log(posiiton.coords);
+            // setCurrentPosition({
+            //     lat: posiiton.coords.latitude,
+            //     lng: posiiton.coords.longitude,
+            // });
+
             setCurrentPosition({
-                lat: posiiton.coords.latitude,
-                lng: posiiton.coords.longitude,
+                lat: 21.004348150849975,
+                lng: 105.84652516308375,
             });
         }, null);
     }, []);
