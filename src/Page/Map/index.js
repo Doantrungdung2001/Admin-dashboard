@@ -53,23 +53,21 @@ function Map() {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
-            // setCurrentPosition({
-            //     lat: posiiton.coords.latitude,
-            //     lng: posiiton.coords.longitude,
-            // });
-
+            console.log(posiiton.coords);
             setCurrentPosition({
-                lat: 21.004348150849975,
-                lng: 105.84652516308375,
+                lat: posiiton.coords.latitude,
+                lng: posiiton.coords.longitude,
             });
+
+            // setCurrentPosition({
+            //     lat: 21.004348150849975,
+            //     lng: 105.84652516308375,
+            // });
         }, null);
     }, []);
 
     return isLoaded ? (
         <div>
-            <Button type="primary" onClick={handleMove}>
-                あなたの場所に移動する
-            </Button>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={currentPosition}
