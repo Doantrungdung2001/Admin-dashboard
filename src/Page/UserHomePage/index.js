@@ -6,7 +6,7 @@ import HomePageHeader from '../../Components/HomePageHeader';
 //Giá trị fix cứng xài tạm cho Page Pagination
 const shopCount = 50;
 
-function UserHomepage() {
+function UserHomePage() {
     return (
         <>
             <HomePageHeader />
@@ -160,4 +160,4 @@ function UserHomepage() {
     );
 }
 
-export default UserHomepage;
+export default UserHomePage;
