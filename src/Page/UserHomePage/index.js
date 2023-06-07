@@ -1,4 +1,5 @@
 import Map from '../Map';
+import store from '../../store.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PaginatedItems from '../../Components/Pagination';
 import HomePageNavBar from '../../Components/HomePageNavBar';
@@ -20,18 +21,18 @@ function UserHomePage() {
                                     <div className="card">
                                         <div className="card-body">
                                             <img
-                                                src="https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510"
+                                                src={store[0].picture}
                                                 className="card-img-top mb-lg-2"
-                                                alt="Shop image"
+                                                alt="Coffe"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
                                             <div className="d-flex justify-content-between">
-                                                <h5 className="card-title">Highland Coffee</h5>
+                                                <h5 className="card-title">{store[0].name}</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
-                                            <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
+                                            <p className="card-text">{store[0].address}</p>
                                             <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
@@ -51,18 +52,18 @@ function UserHomePage() {
                                     <div className="card">
                                         <div className="card-body">
                                             <img
-                                                src="https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510"
+                                                src={store[1].picture}
                                                 className="card-img-top mb-lg-2"
-                                                alt="Shop image"
+                                                alt="Coffe"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
                                             <div className="d-flex justify-content-between">
-                                                <h5 className="card-title">Highland Coffee</h5>
+                                                <h5 className="card-title">{store[1].name}</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
-                                            <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
+                                            <p className="card-text">{store[1].address}</p>
                                             <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
@@ -85,18 +86,18 @@ function UserHomePage() {
                                     <div className="card">
                                         <div className="card-body">
                                             <img
-                                                src="https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510"
+                                                src={store[2].picture}
                                                 className="card-img-top mb-lg-2"
-                                                alt="Shop image"
+                                                alt="Coffe"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
                                             <div className="d-flex justify-content-between">
-                                                <h5 className="card-title">Highland Coffee</h5>
+                                                <h5 className="card-title">{store[2].name}</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
-                                            <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
+                                            <p className="card-text">{store[2].address}</p>
                                             <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
@@ -116,18 +117,18 @@ function UserHomePage() {
                                     <div className="card">
                                         <div className="card-body">
                                             <img
-                                                src="https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510"
+                                                src={store[3].picture}
                                                 className="card-img-top mb-lg-2"
-                                                alt="Shop image"
+                                                alt="Coffe"
                                                 style={{ width: 360 + 'px', height: 250 + 'px' }}
                                             />
                                             <div className="d-flex justify-content-between">
-                                                <h5 className="card-title">Highland Coffee</h5>
+                                                <h5 className="card-title">{store[3].name}</h5>
                                                 <span>
                                                     <FontAwesomeIcon icon="fas fa-star" /> 4.5
                                                 </span>
                                             </div>
-                                            <p className="card-text">Tran Dai Nghia, Hai Ba Trung, Ha Noi </p>
+                                            <p className="card-text">{store[3].address}</p>
                                             <div className="d-flex justify-content-between">
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div

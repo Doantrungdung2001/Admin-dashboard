@@ -1,29 +1,29 @@
 [
     {
         "id": 1,
-        "name": "Highland Coffee",
-        "address": "03917 Northfield Plaza, Ho Chi Minh City",
+        "name": "KJ Coffee",
+        "address": "10-13 Ng. 30 P. Ta Quang Buu, Back Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "6am-22:30pm",
         "air_condition": true,
         "parking_lot": true,
         "introduction": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
-        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-s/1b/3f/c1/f1/kj-coffee-shop-es-un.jpg",
         "owner_id": 1,
         "coordinates": {
-            "longitude": 106.695942,
-            "latitude": 10.800364
+            "longitude": 105.847077,
+            "latitude": 21.006876
         },
         "max_capacity": 59
     },
     {
         "id": 2,
-        "name": "Highland Coffee",
-        "address": "45792 Hudson Circle, Hanoi",
+        "name": "Coffee House",
+        "address": "10-13 Ng. 30 P. Ta Quang Buu, Back Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "7am-22:30pm",
-        "air_condition": false,
+        "air_condition": true,
         "parking_lot": true,
         "introduction": "Nullam sit amet turpis elementum ligula vehicula consequat.",
-        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "picture": "https://img.freepik.com/free-psd/mockup-coffee-house-shop_53876-65827.jpg?w=2000",
         "owner_id": 2,
         "coordinates": {
             "longitude": 105.84749,
@@ -34,7 +34,7 @@
     {
         "id": 3,
         "name": "Highland Coffee",
-        "address": "Back Khoa, Ha Noi",
+        "address": "91P Tran Dai Nghia, Back Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "6am-22:30pm",
         "air_condition": true,
         "parking_lot": false,
@@ -50,7 +50,7 @@
     {
         "id": 4,
         "name": "Magic Coffee",
-        "address": "Back Khoa, Ha Noi",
+        "address": "40P Ta Quang Buu, Back Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "6am-22:30pm",
         "air_condition": false,
         "parking_lot": true,
@@ -81,13 +81,13 @@
     },
     {
         "id": 6,
-        "name": "Highland Coffee",
-        "address": "7293 Tran Phu, Hanoi",
+        "name": "Press Coffee",
+        "address": "10a P. An Trach, Cat Linh, Dong Da, Ha Noi, Hanoi",
         "business_hour": "7am-22:30pm",
         "air_condition": true,
         "parking_lot": true,
         "introduction": "Praesent faucibus aliquet velit. Morbi nec metus.",
-        "picture": "https://lh3.googleusercontent.com/p/AF1QipOdXvToyzQlOjS9uz6ZRLk6RNKwki3VpuHfH7Vq=s680-w680-h510",
+        "picture": "https://i.pinimg.com/736x/f8/8a/9c/f88a9cfd090c5b017c5b6cd1b4350d23.jpg10",
         "owner_id": 6,
         "coordinates": {
             "longitude": 105.831529,
