@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "KJ Coffee",
-        "address": "10-13 Ng. 30 P. Ta Quang Buu, Back Khoa, Hai Ba Trung, Ha Noi",
+        "address": "10-13 Ng. 30 P. Ta Quang Buu, Bach Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "6am-22:30pm",
         "air_condition": true,
         "parking_lot": true,
@@ -18,7 +18,7 @@
     {
         "id": 2,
         "name": "Coffee House",
-        "address": "10-13 Ng. 30 P. Ta Quang Buu, Back Khoa, Hai Ba Trung, Ha Noi",
+        "address": "10-13 Ng. 30 P. Ta Quang Buu, Bach Khoa, Hai Ba Trung, Ha Noi",
         "business_hour": "7am-22:30pm",
         "air_condition": true,
         "parking_lot": true,

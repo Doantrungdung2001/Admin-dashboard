@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'antd';
 import store from '../../store.json';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import user from '../../Images/user.png';
@@ -10,6 +9,50 @@ const containerStyle = {
     height: '580px',
 };
 
+const mapStyles = [
+    {
+        featureType: 'administrative.land_parcel',
+        stylers: [
+            {
+                visibility: 'off',
+            },
+        ],
+    },
+    {
+        featureType: 'landscape.man_made',
+        stylers: [
+            {
+                visibility: 'off',
+            },
+        ],
+    },
+    {
+        featureType: 'poi',
+        stylers: [
+            {
+                visibility: 'off',
+            },
+        ],
+    },
+    {
+        featureType: 'transit',
+        stylers: [
+            {
+                visibility: 'off',
+            },
+        ],
+    },
+    {
+        featureType: 'road',
+        elementType: 'labels',
+        stylers: [
+            {
+                visibility: 'off',
+            },
+        ],
+    },
+];
+
 function Map() {
     const [currentPosition, setCurrentPosition] = useState({
         lat: 0,
@@ -18,8 +61,8 @@ function Map() {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        // googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
+        // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
         language: 'ja',
     });
 
@@ -40,17 +83,6 @@ function Map() {
         setMap(null);
     }, []);
 
-    const handleMove = () => {
-        navigator.geolocation.getCurrentPosition((posiiton) => {
-            console.log(posiiton.coords);
-            setCurrentPosition({
-                lat: posiiton.coords.latitude,
-                lng: posiiton.coords.longitude,
-            });
-        }, null);
-        onLoad(map);
-    };
-
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
             console.log(posiiton.coords);
@@ -58,11 +90,6 @@ function Map() {
                 lat: posiiton.coords.latitude,
                 lng: posiiton.coords.longitude,
             });
-
-            // setCurrentPosition({
-            //     lat: 21.004348150849975,
-            //     lng: 105.84652516308375,
-            // });
         }, null);
     }, []);
 
@@ -77,6 +104,7 @@ function Map() {
                 onClick={(e) => {
                     console.log(e.latLng.lat(), e.latLng.lng());
                 }}
+                options={{ styles: mapStyles }}
             >
                 <Marker
                     position={{
@@ -85,7 +113,7 @@ function Map() {
                     }}
                     icon={{
                         url: user,
-                        scaledSize: new window.google.maps.Size(60, 60),
+                        scaledSize: new window.google.maps.Size(20, 20),
                     }}
                 />
                 {store.map((data) => (

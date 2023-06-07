@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PaginatedItems from '../../Components/Pagination';
 import HomePageNavBar from '../../Components/HomePageNavBar';
 import HomePageHeader from '../../Components/HomePageHeader';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 //Giá trị fix cứng xài tạm cho Page Pagination
 const shopCount = 50;
 
@@ -29,7 +30,7 @@ function UserHomePage() {
                                             <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">{store[0].name}</h5>
                                                 <span>
-                                                    <FontAwesomeIcon icon="fas fa-star" /> 4.5
+                                                    <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">{store[0].address}</p>
@@ -42,7 +43,7 @@ function UserHomePage() {
                                                         padding: 1 + 'px',
                                                     }}
                                                 >
-                                                    <h6 className="card-title">Open</h6>
+                                                    <h6 className="card-title">free</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -60,7 +61,7 @@ function UserHomePage() {
                                             <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">{store[1].name}</h5>
                                                 <span>
-                                                    <FontAwesomeIcon icon="fas fa-star" /> 4.5
+                                                    <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">{store[1].address}</p>
@@ -73,7 +74,7 @@ function UserHomePage() {
                                                         padding: 1 + 'px',
                                                     }}
                                                 >
-                                                    <h6 className="card-title">Open</h6>
+                                                    <h6 className="card-title">free</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +95,7 @@ function UserHomePage() {
                                             <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">{store[2].name}</h5>
                                                 <span>
-                                                    <FontAwesomeIcon icon="fas fa-star" /> 4.5
+                                                    <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">{store[2].address}</p>
@@ -102,12 +103,12 @@ function UserHomePage() {
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{
-                                                        border: 2 + 'px solid red',
+                                                        border: 2 + 'px solid green',
                                                         borderRadius: 5 + '%',
                                                         padding: 1 + 'px',
                                                     }}
                                                 >
-                                                    <h6 className="card-title">Busy</h6>
+                                                    <h6 className="card-title">free</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +126,7 @@ function UserHomePage() {
                                             <div className="d-flex justify-content-between">
                                                 <h5 className="card-title">{store[3].name}</h5>
                                                 <span>
-                                                    <FontAwesomeIcon icon="fas fa-star" /> 4.5
+                                                    <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> 4.5
                                                 </span>
                                             </div>
                                             <p className="card-text">{store[3].address}</p>
@@ -133,12 +134,12 @@ function UserHomePage() {
                                                 <h6 className="card-title">69 Guests</h6>
                                                 <div
                                                     style={{
-                                                        border: 2 + 'px solid red',
+                                                        border: 2 + 'px solid green',
                                                         borderRadius: 5 + '%',
                                                         padding: 1 + 'px',
                                                     }}
                                                 >
-                                                    <h6 className="card-title">Busy</h6>
+                                                    <h6 className="card-title">free</h6>
                                                 </div>
                                             </div>
                                         </div>
