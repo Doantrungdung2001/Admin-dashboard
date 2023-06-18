@@ -1,4 +1,6 @@
-export const StoreUtils = {
+import { computeDistanceBetween } from 'spherical-geometry-js';
+
+const StoreUtils = {
     /**
      * Returned distance between user position and store position
      * Then you will need put distance to per store object
@@ -14,13 +16,18 @@ export const StoreUtils = {
      * @returns {number} distance
      */
     calculateDistance: function (userPosition, storePosition) {
-        return (
-            Math.acos(
-                Math.sin(userPosition.coordinates.latitude) * Math.sin(storePosition.coordinates.latitude) +
-                    Math.cos(userPosition.coordinates.latitude) *
-                        Math.cos(storePosition.coordinates.latitude) *
-                        Math.cos(userPosition.coordinates.longitude - storePosition.coordinates.longitude),
-            ) * 6371
+        if (userPosition.coordinates.latitude === 0 || userPosition.coordinates.longtitude === 0) {
+            return 5000;
+        }
+        return computeDistanceBetween(
+            {
+                lat: userPosition.coordinates.latitude,
+                lng: userPosition.coordinates.longtitude,
+            },
+            {
+                lat: storePosition.coordinates.latitude,
+                lng: storePosition.coordinates.longtitude,
+            },
         );
     },
 
@@ -32,7 +39,8 @@ export const StoreUtils = {
      */
     sortByDistance: function (stores) {
         let sorted = stores.sort((obj1, obj2) => obj1.distance - obj2.distance);
-        console.log(sorted);
         return sorted;
     },
 };
+
+export default StoreUtils;

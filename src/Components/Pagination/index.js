@@ -1,17 +1,14 @@
-import ReactPaginate from "react-paginate";
-import React, {
-    useEffect,
-    useState
-} from "react";
+import ReactPaginate from 'react-paginate';
+import React, { useEffect, useState } from 'react';
 
 export default function PaginatedItems({ itemsPerPage, shopCount }) {
     const items = [...Array(shopCount).keys()];
-    
+
     // We start with an empty list of items.
     const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
-    
+
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
@@ -19,8 +16,8 @@ export default function PaginatedItems({ itemsPerPage, shopCount }) {
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        console.log(items)
+        // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        // console.log(items)
         setCurrentItems(items.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(items.length / itemsPerPage));
         setCurrentPage(Math.floor(itemOffset / itemsPerPage));
@@ -28,7 +25,7 @@ export default function PaginatedItems({ itemsPerPage, shopCount }) {
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
-        const newOffset = event.selected * itemsPerPage % items.length;
+        const newOffset = (event.selected * itemsPerPage) % items.length;
         console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
         setItemOffset(newOffset);
     };
@@ -57,9 +54,8 @@ export default function PaginatedItems({ itemsPerPage, shopCount }) {
             />
 
             <div>
-                {(((currentPage + 1) * 4) > shopCount? shopCount : ((currentPage + 1) * 4))} of {shopCount} options
+                {(currentPage + 1) * 4 > shopCount ? shopCount : (currentPage + 1) * 4} of {shopCount} options
             </div>
         </div>
     );
 }
-

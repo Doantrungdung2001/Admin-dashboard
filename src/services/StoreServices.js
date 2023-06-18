@@ -1,3 +1,6 @@
+import axiosClient from './axiosClient';
+import StoreUtils from '../utils/StoreUtils';
+
 export const StoreService = {
     /**
      *
@@ -7,5 +10,11 @@ export const StoreService = {
      * @param {number} userPosition.coordinates.longtitude - The longtitude value.
      * @param {number} distance
      */
-    getAll: function (userPosition, distance) {},
+    getAll: async function (userPosition, distance) {
+        let stores = [];
+        stores = await axiosClient.get('/stores');
+        stores = stores.map((store) => ({ ...store, distance: StoreUtils.calculateDistance(userPosition, store) }));
+        stores = StoreUtils.sortByDistance(stores);
+        return stores;
+    },
 };

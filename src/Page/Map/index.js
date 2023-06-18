@@ -3,6 +3,7 @@ import store from '../../store.json';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import user from '../../Images/user.png';
 import { CafeMarker } from './CafeMarker';
+import { StoreService } from '../../services/StoreServices';
 
 const containerStyle = {
     width: '580px',
@@ -59,6 +60,8 @@ function Map() {
         lng: 0,
     });
 
+    let [stores, setStores] = useState([]);
+
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
@@ -85,13 +88,28 @@ function Map() {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
-            console.log(posiiton.coords);
             setCurrentPosition({
                 lat: posiiton.coords.latitude,
                 lng: posiiton.coords.longitude,
             });
         }, null);
     }, []);
+
+    useEffect(() => {
+        async function getStore() {
+            let data = await StoreService.getAll({
+                coordinates: {
+                    latitude: currentPosition.lat,
+                    longtitude: currentPosition.lng,
+                },
+            });
+            return data;
+        }
+
+        getStore().then((value) => {
+            setStores(value);
+        });
+    }, [currentPosition.lat, currentPosition.lng]);
 
     return isLoaded ? (
         <div>
@@ -116,9 +134,7 @@ function Map() {
                         scaledSize: new window.google.maps.Size(20, 20),
                     }}
                 />
-                {store.map((data) => (
-                    <CafeMarker key={data.id} data={data} />
-                ))}
+                {stores !== [] && stores.map((data) => <CafeMarker key={data.id} data={data} />)}
             </GoogleMap>
         </div>
     ) : (

@@ -1,4 +1,4 @@
-import { InfoWindow, Marker, MarkerF } from '@react-google-maps/api';
+import { InfoWindow, Marker } from '@react-google-maps/api';
 import busy from '../../Images/busy.png';
 import free from '../../Images/free.png';
 import cafe from '../../Images/cafe.png';
@@ -7,13 +7,13 @@ import './style.scss';
 export const CafeMarker = ({ data }) => {
     let [showInfoWindow, setShowInfoWindow] = useState(false);
     return (
-        <MarkerF
+        <Marker
             position={{
-                lat: data.coordinates.latitude,
-                lng: data.coordinates.longitude,
+                lat: parseInt(data.coordinates.latitude),
+                lng: parseInt(data.coordinates.longtitude),
             }}
             icon={{
-                url: free,
+                url: data.status ? free : busy,
                 scaledSize: new window.google.maps.Size(60, 60),
             }}
             onClick={() => setShowInfoWindow(!showInfoWindow)}
@@ -25,11 +25,11 @@ export const CafeMarker = ({ data }) => {
                         <div>
                             <h5>{data.name}</h5>
                             <p>{data.address}</p>
-                            <p>69 Guest</p>
+                            <p>{data.a_working_day.guests + ' Guest'}</p>
                         </div>
                     </div>
                 </InfoWindow>
             )}
-        </MarkerF>
+        </Marker>
     );
 };
