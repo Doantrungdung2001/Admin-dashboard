@@ -3,8 +3,14 @@ export const StoreUtils = {
      * Returned distance between user position and store position
      * Then you will need put distance to per store object
      *
-     * @param {{coordinates: {latitude, longitude}}} userPosition
-     * @param {{coordinates: {latitude, longitude}}} storePosition
+     * @param {Object} userPosition - Current position of user.
+     * @param {Object} userPosition.coordinates - coordinates of user
+     * @param {number} userPosition.coordinates.latitude - The latitude value.
+     * @param {number} userPosition.coordinates.longtitude - The longtitude value.
+     * @param {Object} storePosition - Current position of user.
+     * @param {Object} storePosition.coordinates - coordinates of user
+     * @param {number} storePosition.coordinates.latitude - The latitude value.
+     * @param {number} storePosition.coordinates.longtitude - The longtitude value.
      * @returns {number} distance
      */
     calculateDistance: function (userPosition, storePosition) {
