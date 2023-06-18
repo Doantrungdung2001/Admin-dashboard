@@ -107,6 +107,7 @@ function Map() {
         }
 
         getStore().then((value) => {
+            console.log(value);
             setStores(value);
         });
     }, [currentPosition.lat, currentPosition.lng]);
@@ -134,7 +135,9 @@ function Map() {
                         scaledSize: new window.google.maps.Size(20, 20),
                     }}
                 />
-                {stores !== [] && stores.map((data) => <CafeMarker key={data.id} data={data} />)}
+                {stores.map((data) => (
+                    <CafeMarker key={data.id} data={data} />
+                ))}
             </GoogleMap>
         </div>
     ) : (
