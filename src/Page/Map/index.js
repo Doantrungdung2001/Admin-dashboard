@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import store from '../../store.json';
+import React, { useEffect } from 'react';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import user from '../../Images/user.png';
 import { CafeMarker } from './CafeMarker';
-import { StoreService } from '../../services/StoreServices';
 
 const containerStyle = {
     width: '580px',
@@ -54,13 +52,13 @@ const mapStyles = [
     },
 ];
 
-function Map() {
-    const [currentPosition, setCurrentPosition] = useState({
-        lat: 0,
-        lng: 0,
-    });
+function Map({ stores, userPosition, setUserPosition }) {
+    // const [currentPosition, setCurrentPosition] = useState({
+    //     lat: 0,
+    //     lng: 0,
+    // });
 
-    let [stores, setStores] = useState([]);
+    // let [stores, setStores] = useState([]);
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -74,12 +72,12 @@ function Map() {
     const onLoad = React.useCallback(
         function callback(map) {
             // This is just an example of getting and using the map instance!!! don't just blindly copy!
-            const bounds = new window.google.maps.LatLngBounds(currentPosition);
+            const bounds = new window.google.maps.LatLngBounds(userPosition);
             map.fitBounds(bounds);
 
             setMap(map);
         },
-        [currentPosition],
+        [userPosition],
     );
 
     const onUnmount = React.useCallback(function callback(map) {
@@ -88,35 +86,35 @@ function Map() {
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((posiiton) => {
-            setCurrentPosition({
+            setUserPosition({
                 lat: posiiton.coords.latitude,
                 lng: posiiton.coords.longitude,
             });
         }, null);
-    }, []);
+    }, [setUserPosition]);
 
-    useEffect(() => {
-        async function getStore() {
-            let data = await StoreService.getAll({
-                coordinates: {
-                    latitude: currentPosition.lat,
-                    longtitude: currentPosition.lng,
-                },
-            });
-            return data;
-        }
+    // useEffect(() => {
+    //     async function getStore() {
+    //         let data = await StoreService.getAll({
+    //             coordinates: {
+    //                 latitude: currentPosition.lat,
+    //                 longitude: currentPosition.lng,
+    //             },
+    //         });
+    //         return data;
+    //     }
 
-        getStore().then((value) => {
-            console.log(value);
-            setStores(value);
-        });
-    }, [currentPosition.lat, currentPosition.lng]);
+    //     getStore().then((value) => {
+    //         console.log(value);
+    //         setStores(value);
+    //     });
+    // }, [currentPosition.lat, currentPosition.lng]);
 
     return isLoaded ? (
         <div>
             <GoogleMap
                 mapContainerStyle={containerStyle}
-                center={currentPosition}
+                center={userPosition}
                 zoom={10}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
@@ -127,8 +125,8 @@ function Map() {
             >
                 <Marker
                     position={{
-                        lat: currentPosition.lat,
-                        lng: currentPosition.lng,
+                        lat: userPosition.lat,
+                        lng: userPosition.lng,
                     }}
                     icon={{
                         url: user,

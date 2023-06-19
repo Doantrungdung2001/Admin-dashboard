@@ -10,7 +10,7 @@ export const CafeMarker = ({ data }) => {
         <Marker
             position={{
                 lat: parseFloat(data.coordinates.latitude),
-                lng: parseFloat(data.coordinates.longtitude),
+                lng: parseFloat(data.coordinates.longitude),
             }}
             icon={{
                 url: data.status ? free : busy,

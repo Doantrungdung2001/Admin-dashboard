@@ -8,25 +8,25 @@ const StoreUtils = {
      * @param {Object} userPosition - Current position of user.
      * @param {Object} userPosition.coordinates - coordinates of user
      * @param {number} userPosition.coordinates.latitude - The latitude value.
-     * @param {number} userPosition.coordinates.longtitude - The longtitude value.
+     * @param {number} userPosition.coordinates.longitude - The longitude value.
      * @param {Object} storePosition - Current position of user.
      * @param {Object} storePosition.coordinates - coordinates of user
      * @param {number} storePosition.coordinates.latitude - The latitude value.
-     * @param {number} storePosition.coordinates.longtitude - The longtitude value.
+     * @param {number} storePosition.coordinates.longitude - The longitude value.
      * @returns {number} distance
      */
     calculateDistance: function (userPosition, storePosition) {
-        if (userPosition.coordinates.latitude === 0 || userPosition.coordinates.longtitude === 0) {
+        if (userPosition.coordinates.latitude === 0 || userPosition.coordinates.longitude === 0) {
             return 5000;
         }
         return computeDistanceBetween(
             {
                 lat: userPosition.coordinates.latitude,
-                lng: userPosition.coordinates.longtitude,
+                lng: userPosition.coordinates.longitude,
             },
             {
                 lat: storePosition.coordinates.latitude,
-                lng: storePosition.coordinates.longtitude,
+                lng: storePosition.coordinates.longitude,
             },
         );
     },

@@ -5,10 +5,39 @@ import PaginatedItems from '../../Components/Pagination';
 import HomePageNavBar from '../../Components/HomePageNavBar';
 import HomePageHeader from '../../Components/HomePageHeader';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import { StoreService } from '../../services/StoreServices';
+import { useSearchParams } from 'react-router-dom';
 //Giá trị fix cứng xài tạm cho Page Pagination
 const shopCount = 50;
 
 function UserHomePage() {
+    let [userPosition, setUserPosition] = useState({
+        lat: 0,
+        lng: 0,
+    });
+    let [stores, setStores] = useState([]);
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        async function getStore() {
+            let data = await StoreService.getAll(
+                {
+                    coordinates: {
+                        latitude: userPosition.lat,
+                        longitude: userPosition.lng,
+                    },
+                },
+                5000,
+                searchParams.get('search'),
+            );
+            return data;
+        }
+
+        getStore().then((value) => {
+            setStores(value);
+        });
+    }, [userPosition.lat, userPosition.lng, searchParams]);
     return (
         <>
             <HomePageHeader />
@@ -153,7 +182,7 @@ function UserHomePage() {
                         </div>
 
                         <div className="col-lg-3">
-                            <Map />
+                            <Map userPosition={userPosition} setUserPosition={setUserPosition} stores={stores} />
                         </div>
                     </div>
                 </div>
