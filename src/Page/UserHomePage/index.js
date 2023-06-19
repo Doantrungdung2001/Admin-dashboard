@@ -8,28 +8,15 @@ import { useEffect, useState } from 'react';
 import { StoreService } from '../../services/StoreServices';
 import { useSearchParams } from 'react-router-dom';
 import CardCafe from '../../Components/CardCafe';
-//Giá trị fix cứng xài tạm cho Page Pagination
 
 function UserHomePage() {
-    const [currentItems, setCurrentItems] = useState(0);
-    const [store, setStore] = useState([]);
-    const currentPageStore = store.slice(currentItems, currentItems + 4);
-    const handleItem = (childData) => {
-        setCurrentItems(childData);
-    };
-    useEffect(() => {
-        // console.log('cal api');
-        fetch('http://127.0.0.1:8000/api/stores')
-            .then((response) => response.json())
-            .then((data) => setStore(data));
-    }, []);
-
     let [userPosition, setUserPosition] = useState({
         lat: 0,
         lng: 0,
     });
     let [stores, setStores] = useState([]);
     const [searchParams] = useSearchParams();
+    const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
         async function getStore() {
@@ -50,6 +37,11 @@ function UserHomePage() {
             setStores(value);
         });
     }, [userPosition.lat, userPosition.lng, searchParams]);
+
+    useEffect(() => {
+        console.log(currentPage);
+    }, [currentPage]);
+
     return (
         <>
             <HomePageHeader />
@@ -59,14 +51,20 @@ function UserHomePage() {
                     <div className="row">
                         <div className="col-lg-9">
                             <div className="row mb-lg-4">
-                                {currentPageStore.map((store, index) => {
-                                    return <CardCafe key={index} store={store} />;
+                                {stores.map((store, index) => {
+                                    if (index < currentPage + 4 && index >= currentPage) {
+                                        return <CardCafe key={index} store={store} />;
+                                    }
                                 })}
                             </div>
 
-                            {store.length != 0 ? (
+                            {stores.length !== 0 ? (
                                 <div className="page-pagination">
-                                    <PaginatedItems itemsPerPage={4} shopCount={store.length} callback={handleItem} />
+                                    <PaginatedItems
+                                        itemsPerPage={4}
+                                        shopCount={stores.length}
+                                        callback={setCurrentPage}
+                                    />
                                 </div>
                             ) : (
                                 <></>
