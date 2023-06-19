@@ -1,7 +1,7 @@
 import ReactPaginate from 'react-paginate';
 import React, { useEffect, useState } from 'react';
 
-export default function PaginatedItems({ itemsPerPage, shopCount }) {
+export default function PaginatedItems({ itemsPerPage, shopCount, callback }) {
     const items = [...Array(shopCount).keys()];
 
     // We start with an empty list of items.
@@ -28,6 +28,8 @@ export default function PaginatedItems({ itemsPerPage, shopCount }) {
         const newOffset = (event.selected * itemsPerPage) % items.length;
         console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
         setItemOffset(newOffset);
+
+        callback(event.selected * 4);
     };
 
     return (

@@ -1,0 +1,15 @@
+.nav-title{
+    font-style: bold !important;
+    color: #333;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.nav-item{
+
+    &:hover{
+        cursor: pointer;
+        opacity: 0.6;
+    }
+}
