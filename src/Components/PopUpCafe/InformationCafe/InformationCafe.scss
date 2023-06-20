@@ -1,0 +1,13 @@
+.cafe-status {
+    border: 2px solid;
+    border-radius: 5%;
+    padding: 1px 8px 1px 8px;
+ 
+    &__free {
+       border-color: green;
+    }
+ 
+    &__busy {
+       border-color: red;
+    }
+}

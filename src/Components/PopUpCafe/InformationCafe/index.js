@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './InformationCafe.scss';
 
 function InformationCafe({ store }) {
     const styles = { paddingRight: '8px', width: '12px' };
@@ -70,19 +71,10 @@ function InformationCafe({ store }) {
                             className="text-primary"
                             style={{ paddingRight: '8px', width: '12px' }}
                         />
-                        <span>69 Guests</span>
+                        <span>{`${store.a_working_day.guests} Guests`}</span>
                     </div>
-                    <div
-                        style={{
-                            border: 2 + 'px solid green',
-                            borderRadius: 5 + '%',
-                            paddingTop: 1 + 'px',
-                            paddingBottom: 1 + 'px',
-                            paddingLeft: 1 + 'px',
-                            paddingRight: 1 + 'px',
-                        }}
-                    >
-                        <h6 style={{ margin: 0 + 'px' }}>free</h6>
+                    <div className={store.status ? 'cafe-status cafe-status__free' : 'cafe-status cafe-status__busy'}>
+                        <h6 style={{ margin: 0 + 'px' }}>{store.status ? 'Free' : 'Busy'}</h6>
                     </div>
                 </div>
             </div>

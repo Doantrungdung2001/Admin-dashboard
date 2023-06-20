@@ -7,6 +7,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import InformationCafe from './InformationCafe';
 import ReviewCafe from './ReviewCafe';
+import IntroduceCafe from './IntroduceCafe';
 
 // const cx = classNames.bind(styles);
 
@@ -29,10 +30,10 @@ function PopUpCafe({ onClose, stateShow, store }) {
             contentPopUp = <InformationCafe store={store} />;
             break;
         case 1:
-            contentPopUp = <ReviewCafe />;
+            contentPopUp = <ReviewCafe id={store.id} />;
             break;
         case 2:
-            contentPopUp = <ReviewCafe />;
+            contentPopUp = <IntroduceCafe store={store} />;
             break; //
     }
 
