@@ -16,9 +16,9 @@ function UserHomePage() {
         lng: 0,
     });
     let [stores, setStores] = useState([]);
+    let [filterStores, setFilterStores] = useState([]);
     const [searchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(0);
-    let [filterStores, setFilterStores] = useState([]);
     const [filterStatus, setFilterStatus] = useState({
         isOpen: false,
         isFree: false,
