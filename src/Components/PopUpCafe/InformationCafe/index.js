@@ -61,7 +61,9 @@ function InformationCafe({ store }) {
                         className="text-primary "
                         style={{ paddingRight: '8px', width: '12px' }}
                     />
-                    <span>Đang mở cửa - 閉店時間:22:00 </span>
+                    <span>
+                        {store.isOpen ? '開いています' : '開いていません'} - {store.business_hour}{' '}
+                    </span>
                     <FontAwesomeIcon icon={faChevronDown} />
                 </div>
                 <div className="d-flex justify-content-between">

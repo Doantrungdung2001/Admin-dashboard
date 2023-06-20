@@ -28,6 +28,7 @@ function UserHomePage() {
     const [filterStatus, setFilterStatus] = useState({
         isOpen: false,
         isFree: false,
+        isSort: false,
     });
 
     const handleFilterChange = (type) => {
@@ -48,6 +49,7 @@ function UserHomePage() {
                 },
                 5000,
                 searchParams.get('search'),
+                filterStatus.isSort,
             );
             return data;
         }
@@ -56,7 +58,7 @@ function UserHomePage() {
             setStores(value);
             setFilterStores(value);
         });
-    }, [userPosition.lat, userPosition.lng, searchParams]);
+    }, [userPosition.lat, userPosition.lng, searchParams, filterStatus.isSort]);
 
     useEffect(() => {
         console.log(currentPage);
@@ -76,7 +78,7 @@ function UserHomePage() {
             }
         });
         setFilterStores(getFilteredStores);
-    }, [filterStatus]);
+    }, [filterStatus, stores]);
 
     useEffect(() => {
         console.log(filterStores);

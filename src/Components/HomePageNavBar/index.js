@@ -13,6 +13,7 @@ function HomePageNavBar({ onFilterChange }) {
     const [filter, setFilter] = useState({
         isOpen: false,
         isFree: false,
+        isSort: false,
     });
 
     const handleFilter = (type) => {
@@ -22,7 +23,7 @@ function HomePageNavBar({ onFilterChange }) {
         }));
 
         onFilterChange(type);
-    }
+    };
     return (
         <>
             <header className={cx('nav')}>
@@ -36,9 +37,24 @@ function HomePageNavBar({ onFilterChange }) {
 
                     <div>
                         <Space size="large">
-                            <Button className={cx('list-btn', { [cx('active')]: filter.isOpen === true})} onClick={() => handleFilter('isOpen')}>営業時開</Button>
-                            <Button className={cx('list-btn')}>最寄り</Button>
-                            <Button className={cx('list-btn', { [cx('active')]: filter.isFree === true})} onClick={() => handleFilter('isFree')}>混雑状況</Button>
+                            <Button
+                                className={cx('list-btn', { [cx('active')]: filter.isOpen === true })}
+                                onClick={() => handleFilter('isOpen')}
+                            >
+                                営業時開
+                            </Button>
+                            <Button
+                                className={cx('list-btn', { [cx('active')]: filter.isSort === true })}
+                                onClick={() => handleFilter('isSort')}
+                            >
+                                最寄り
+                            </Button>
+                            <Button
+                                className={cx('list-btn', { [cx('active')]: filter.isFree === true })}
+                                onClick={() => handleFilter('isFree')}
+                            >
+                                混雑状況
+                            </Button>
                             <Button className={cx('list-btn')}>日本人の評価</Button>
                         </Space>
                     </div>

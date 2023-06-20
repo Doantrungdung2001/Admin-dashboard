@@ -32,7 +32,7 @@ function CardCafe({ store }) {
                         <PopUpCafe onClose={handleCloseModal} store={store} stateShow={modalIsOpen} />
 
                         <span>
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> 4.5
+                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> {store.avg_rating}
                         </span>
                     </div>
                     <p className="card-text">{store.address}</p>

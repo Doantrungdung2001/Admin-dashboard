@@ -45,7 +45,7 @@ function PopUpCafe({ onClose, stateShow, store }) {
     };
 
     return (
-        <Modal show={stateShow} onHide={onClose}>
+        <Modal show={stateShow} onHide={onClose} dialogClassName="my-modal">
             <div className="modal-content">
                 <div
                     className="modal-header "
@@ -54,12 +54,12 @@ function PopUpCafe({ onClose, stateShow, store }) {
                         paddingBottom: '0px',
                     }}
                 >
-                    <img src={store.picture} alt="cafe" style={{ height: 200 + 'px', width: 100 + '%' }} />
+                    <img src={store.picture} alt="cafe" style={{ height: 300 + 'px', width: 100 + '%' }} />
                     <h5 className="modal-title" style={{ padding: '8px 0px' }}>
                         {store.name}
                     </h5>
                     <div className="">
-                        <span style={{ paddingRight: '4px', opacity: '0.75' }}>4.5</span>
+                        <span style={{ paddingRight: '4px', opacity: '0.75' }}>{store.avg_rating}</span>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'yellow' }} />
                         <p style={{ marginBottom: '8px', opacity: '0.75' }}>Gioi thieu</p>
                     </div>

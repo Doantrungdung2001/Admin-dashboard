@@ -11,7 +11,7 @@ export const StoreService = {
      * @param {number} distance - The distance value between cafe and user.
      * @param {string} name - The name of the cafe or name of address
      */
-    getAll: async function (userPosition, distance, name) {
+    getAll: async function (userPosition, distance, name, isSort) {
         let stores = [];
         stores = await axiosClient.get('/stores', {
             params: {
@@ -20,7 +20,9 @@ export const StoreService = {
         });
         stores = stores.map((store) => ({ ...store, distance: StoreUtils.calculateDistance(userPosition, store) }));
         stores = stores.filter((store) => store.distance <= distance);
-        stores = StoreUtils.sortByDistance(stores);
+        if (isSort) {
+            stores = StoreUtils.sortByDistance(stores);
+        }
         return stores;
     },
 };
