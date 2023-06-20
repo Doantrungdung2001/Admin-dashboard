@@ -16,19 +16,22 @@ export default function PaginatedItems({ itemsPerPage, shopCount, callback }) {
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
-        // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        // console.log(items)
         setCurrentItems(items.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(items.length / itemsPerPage));
         setCurrentPage(Math.floor(itemOffset / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
+    
+    useEffect(() => {
+        setPageCount(Math.ceil(items.length / itemsPerPage));
+        setCurrentPage(Math.floor(itemOffset / itemsPerPage));
+      }, [items, itemsPerPage, itemOffset, shopCount]);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % items.length;
         console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
         setItemOffset(newOffset);
-
+        
         callback(event.selected * 4);
     };
 
