@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { StoreService } from '../../services/StoreServices';
 import { useSearchParams } from 'react-router-dom';
 import CardCafe from '../../Components/CardCafe';
+import { set } from 'immutable';
 
 function UserHomePage() {
     let [userPosition, setUserPosition] = useState({
@@ -17,6 +18,18 @@ function UserHomePage() {
     let [stores, setStores] = useState([]);
     const [searchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(0);
+    let [filterStores, setFilterStores] = useState([]);
+    const [filterStatus, setFilterStatus] = useState({
+        isOpen: false,
+        isFree: false,
+    });
+
+    const handleFilterChange = (type) => {
+        setFilterStatus((prevStatus) => ({
+            ...prevStatus,
+            [type]: !prevStatus[type],
+        }));
+    };
 
     useEffect(() => {
         async function getStore() {
@@ -35,6 +48,7 @@ function UserHomePage() {
 
         getStore().then((value) => {
             setStores(value);
+            setFilterStores(value);
         });
     }, [userPosition.lat, userPosition.lng, searchParams]);
 
@@ -42,27 +56,48 @@ function UserHomePage() {
         console.log(currentPage);
     }, [currentPage]);
 
+    useEffect(() => {
+        console.log(filterStatus);
+        let getFilteredStores = stores.filter((store) => {
+            if (filterStatus.isOpen && filterStatus.isFree) {
+                return store.isOpen && store.status;
+            } else if (filterStatus.isOpen) {
+                return store.isOpen;
+            } else if (filterStatus.isFree) {
+                return store.status;
+            } else {
+                return true;
+            }
+        });
+        setFilterStores(getFilteredStores);
+    }, [filterStatus]);
+
+    useEffect(() => {
+        console.log(filterStores);
+        console.log(filterStores.length);
+    }, [filterStores]);
+    
     return (
         <>
             <HomePageHeader />
-            <HomePageNavBar />
+            <HomePageNavBar onFilterChange={handleFilterChange} />
             <div className="container mx-3 ">
                 <div className="mt-lg-4 mb-lg-4">
                     <div className="row">
                         <div className="col-lg-9">
                             <div className="row mb-lg-4">
-                                {stores.map((store, index) => {
+                                {filterStores.map((store, index) => {
                                     if (index < currentPage + 4 && index >= currentPage) {
                                         return <CardCafe key={index} store={store} />;
                                     }
                                 })}
                             </div>
 
-                            {stores.length !== 0 ? (
+                            {filterStores.length !== 0 ? (
                                 <div className="page-pagination">
                                     <PaginatedItems
                                         itemsPerPage={4}
-                                        shopCount={stores.length}
+                                        shopCount={filterStores.length}
                                         callback={setCurrentPage}
                                     />
                                 </div>

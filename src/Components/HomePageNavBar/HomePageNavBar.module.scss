@@ -1,9 +1,9 @@
-.nav{
+.nav {
     height: var(--header-height);
     background-color: #fff;
 }
 
-.nav-area{
+.nav-area {
     height: 75%;
     padding: 0px 50px;
     display: flex;
@@ -18,20 +18,31 @@
     background-color: #fff !important;
     color: #000 !important;
     border: 1px #ccc solid !important;
-} 
-
-.down-icon{
-   margin-left: 4px;
-   font-size: 10px;
 }
 
-.list-btn{
+.down-icon {
+    margin-left: 4px;
+    font-size: 10px;
+}
+
+.list-btn {
     padding: 0px 16px !important;
     border-radius: 16px !important;
     background-color: #ccc !important;
+    transition: background-color 0.3s ease !important;
+
+    &:hover {
+        background-color: #666 !important;
+        color: #fff !important;
+    }
+
+    &.active {
+        background-color: #333 !important;
+        color: #fff !important;
+    }
 }
 
-.arrange-btn{
+.arrange-btn {
     padding: 0px 16px !important;
     border-radius: 16px !important;
 }

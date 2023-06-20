@@ -37,19 +37,12 @@ function CardCafe({ store }) {
                     </div>
                     <p className="card-text">{store.address}</p>
                     <div className="d-flex justify-content-between">
-                        <h6 className="card-title">69 Guests</h6>
+                        <h6 className="card-title">{`${store.a_working_day.guests} Guests`}</h6>
                         <div
-                            style={{
-                                border: 2 + 'px solid green',
-                                borderRadius: 5 + '%',
-                                paddingTop: 1 + 'px',
-                                paddingBottom: 1 + 'px',
-                                paddingLeft: 8 + 'px',
-                                paddingRight: 8 + 'px',
-                            }}
+                            className={store.status ? 'card-status card-status__free' : 'card-status card-status__busy'}
                         >
                             <h6 className="card-title" style={{ margin: 0 + 'px' }}>
-                                free
+                                {store.status ? 'Free' : 'Busy'}
                             </h6>
                         </div>
                     </div>
