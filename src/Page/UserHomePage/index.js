@@ -19,12 +19,12 @@ function UserHomePage() {
     let [filterStores, setFilterStores] = useState([]);
     const [searchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(0);
-    const [allStore, setAllStore] = useState([]);
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/stores')
-            .then((response) => response.json())
-            .then((data) => setAllStore(data));
-    }, []);
+    // const [allStore, setAllStore] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://127.0.0.1:8000/api/stores')
+    //         .then((response) => response.json())
+    //         .then((data) => setAllStore(data));
+    // }, []);
     const [filterStatus, setFilterStatus] = useState({
         isOpen: false,
         isFree: false,

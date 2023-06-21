@@ -1,9 +1,8 @@
-import classNames from 'classnames/bind';
 import styles from './PopUpCafe.scss';
 
-import { faChevronDown, faClock, faClose, faLocation, faPerson, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import InformationCafe from './InformationCafe';
 import ReviewCafe from './ReviewCafe';

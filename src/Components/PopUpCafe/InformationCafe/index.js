@@ -1,12 +1,4 @@
-import {
-    faCheck,
-    faChevronDown,
-    faClock,
-    faLocationDot,
-    faPeopleSimple,
-    faUser,
-    faXmark,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faChevronDown, faClock, faLocationDot, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './InformationCafe.scss';

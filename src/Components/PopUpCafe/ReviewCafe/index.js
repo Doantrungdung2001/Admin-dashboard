@@ -1,10 +1,11 @@
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactStars from 'react-rating-stars-component';
 import { useEffect, useState } from 'react';
 import Stars from '../../Stars';
 import classNames from 'classnames';
 import axios from 'axios';
+import { Modal } from 'react-bootstrap';
 
 function ReviewCafe({ id }) {
     console.log('id quann', id);
@@ -12,38 +13,26 @@ function ReviewCafe({ id }) {
     const [stars, setStarts] = useState();
     const [comment, setComment] = useState('');
     const [image, setImage] = useState(null);
-    const [response, setResponse] = useState(0);
+    const [response, setResponse] = useState('');
+    const [countSuccess, setCountSucess] = useState(0);
+    const [stateShow, setStateShow] = useState(false);
+
+    useEffect(() => {
+        console.log('call API comment');
+        fetch(`http://127.0.0.1:8000/api/reviews?store_id=${id}`)
+            .then((response) => response.json())
+            .then((data) => setReviews(data));
+    }, [countSuccess]);
+    // console.log('dem comment', countSuccess);
 
     const classesBtn = classNames({
         btn: true,
         'btn-primary': true,
         disabled: stars && comment ? false : true,
     });
-    const data = {
-        stars: stars,
-        comment: comment,
-        store_id: id,
-        picture: '',
-        history_id: 1,
-    };
+
     const ratingChanged = (newRating) => {
         setStarts(newRating);
-    };
-    const handleData = () => {
-        if (stars && comment) {
-            axios
-                .post('http://127.0.0.1:8000/api/reviews', data)
-                .then((response) => {
-                    console.log(response.data);
-                    if (response.data === 'success') {
-                        setResponse((prev) => prev++);
-                    }
-                })
-                .catch((error) => console.error(error));
-            setStarts(0);
-            setComment('');
-        }
-        // console.log(classesBtn.disabled);
     };
     function handleImageUpload(event) {
         const file = event.target.files[0];
@@ -52,12 +41,32 @@ function ReviewCafe({ id }) {
         reader.readAsDataURL(file);
     }
 
-    useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/reviews?store_id=${id}`)
-            .then((response) => response.json())
-            .then((data) => setReviews(data));
-    }, [response]);
-    console.log('dem comment', response);
+    const data = {
+        stars: stars,
+        comment: comment,
+        store_id: id,
+        picture: '',
+        history_id: 1,
+    };
+
+    const handleData = () => {
+        if (stars && comment) {
+            axios
+                .post('http://127.0.0.1:8000/api/reviews', data)
+                .then((response) => {
+                    console.log(response.data.message);
+                    setStateShow(true);
+                    setResponse(response.data.message);
+                    if (response.data.message === 'success') {
+                        setCountSucess((prevState) => prevState + 1);
+                    }
+                })
+                .catch((error) => console.error(error));
+            setStarts(0);
+            setComment('');
+        }
+    };
+
     return (
         <>
             <div className="">
@@ -68,7 +77,7 @@ function ReviewCafe({ id }) {
                             onChange={ratingChanged}
                             size={24}
                             activeColor="#ffd700"
-                            // value={stars}
+                            value={stars}
                             classNames="text-center"
                             style={{ width: '100%' }}
                         />
@@ -118,6 +127,53 @@ function ReviewCafe({ id }) {
                     );
                 })}
             </div>
+            <Modal show={stateShow} style={{ marginTop: '17%' }}>
+                {response === 'success' ? (
+                    <div className="modal-content">
+                        <div className="modal-header justify-content-center">
+                            <div>
+                                <FontAwesomeIcon
+                                    icon={faCheck}
+                                    className="text-success"
+                                    style={{ paddingRight: '8px', width: '12px' }}
+                                />
+                                <span>Comment successful</span>
+                            </div>
+                        </div>
+                        <div className="modal-footer justify-content-center">
+                            <button
+                                type="button"
+                                className="btn btn-success"
+                                data-bs-dismiss="modal"
+                                onClick={() => setStateShow(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <FontAwesomeIcon
+                                icon={faCheck}
+                                className="text-danger"
+                                style={{ paddingRight: '8px', width: '12px' }}
+                            />
+                            <span>Comment fail</span>
+                        </div>
+                        <div className="modal-footer">
+                            <button
+                                type="button"
+                                className="btn btn-success"
+                                data-bs-dismiss="modal"
+                                onClick={() => setStateShow(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </Modal>
         </>
     );
 }
