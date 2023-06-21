@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './HomePageHeader.module.scss';
 import React from 'react';
-import { Button, Input, Layout, Menu, Space, Badge } from 'antd';
+import { Button, Input, Space, Badge } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import { BellOutlined, DownOutlined, SearchOutlined, UserOutlined, BellFilled } from '@ant-design/icons';
+import { BellOutlined, DownOutlined, UserOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);

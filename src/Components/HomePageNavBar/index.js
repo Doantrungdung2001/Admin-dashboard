@@ -4,7 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Space } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faFilter, faSort } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faSort } from '@fortawesome/free-solid-svg-icons';
 import { DownOutlined } from '@ant-design/icons';
 
 const cx = classNames.bind(styles);

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import styles from './CardCafe.scss';
 import PopUpCafe from '../PopUpCafe';
-import { Button, Modal } from 'react-bootstrap';
 
 function CardCafe({ store }) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
