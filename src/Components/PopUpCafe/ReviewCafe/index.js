@@ -85,7 +85,7 @@ function ReviewCafe({ id }) {
 
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" className="form-label">
-                            Comment
+                            コメント
                         </label>
                         <textarea
                             className="form-control"
@@ -98,9 +98,7 @@ function ReviewCafe({ id }) {
                     <div className="d-flex justify-content-between">
                         <div>
                             <input type="file" onChange={handleImageUpload} name="myFile" />
-                            {image && (
-                                <img src={image} alt="Uploaded image" style={{ width: '40px', height: '40px' }} />
-                            )}
+                            {image && <img src={image} alt="Uploaded" style={{ width: '40px', height: '40px' }} />}
                         </div>
                         <button className={classesBtn} onClick={handleData}>
                             レビュー
@@ -137,7 +135,7 @@ function ReviewCafe({ id }) {
                                     className="text-success"
                                     style={{ paddingRight: '8px', width: '12px' }}
                                 />
-                                <span>Comment successful</span>
+                                <span>コメント成功</span>
                             </div>
                         </div>
                         <div className="modal-footer justify-content-center">
@@ -147,7 +145,7 @@ function ReviewCafe({ id }) {
                                 data-bs-dismiss="modal"
                                 onClick={() => setStateShow(false)}
                             >
-                                Close
+                                閉じる
                             </button>
                         </div>
                     </div>
@@ -159,7 +157,7 @@ function ReviewCafe({ id }) {
                                 className="text-danger"
                                 style={{ paddingRight: '8px', width: '12px' }}
                             />
-                            <span>Comment fail</span>
+                            <span>コメント失敗</span>
                         </div>
                         <div className="modal-footer">
                             <button
@@ -168,7 +166,7 @@ function ReviewCafe({ id }) {
                                 data-bs-dismiss="modal"
                                 onClick={() => setStateShow(false)}
                             >
-                                Close
+                                閉じる
                             </button>
                         </div>
                     </div>

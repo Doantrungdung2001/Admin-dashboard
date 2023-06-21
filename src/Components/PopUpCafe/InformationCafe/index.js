@@ -12,12 +12,12 @@ function InformationCafe({ store }) {
                 {store.air_condition === 0 ? (
                     <>
                         <FontAwesomeIcon icon={faXmark} className="text-danger" style={styles} />
-                        <span>No Air Condition</span>
+                        <span>エアコンがない</span>
                     </>
                 ) : (
                     <>
                         <FontAwesomeIcon icon={faCheck} className="text-success" style={styles} />
-                        <span>Air Condition</span>
+                        <span>エアコンがある</span>
                     </>
                 )}
             </div>
@@ -29,12 +29,12 @@ function InformationCafe({ store }) {
                 {store.parking_lot === 0 ? (
                     <>
                         <FontAwesomeIcon icon={faXmark} className="text-danger" style={styles} />
-                        <span>No Parking lot</span>
+                        <span>駐車場がない</span>
                     </>
                 ) : (
                     <>
                         <FontAwesomeIcon icon={faCheck} className="text-success" style={styles} />
-                        <span>Parking lot</span>
+                        <span>駐車場がある</span>
                     </>
                 )}
             </div>

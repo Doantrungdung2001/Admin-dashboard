@@ -60,7 +60,7 @@ function PopUpCafe({ onClose, stateShow, store }) {
                     <div className="">
                         <span style={{ paddingRight: '4px', opacity: '0.75' }}>{store.avg_rating}</span>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'yellow' }} />
-                        <p style={{ marginBottom: '8px', opacity: '0.75' }}>Gioi thieu</p>
+                        <p style={{ marginBottom: '8px', opacity: '0.75' }}>紹介</p>
                     </div>
 
                     <ul className="nav nav-underline justify-content-around" style={{ width: '100%' }}>
@@ -86,7 +86,7 @@ function PopUpCafe({ onClose, stateShow, store }) {
 
                 <div className="modal-footer">
                     <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={onClose}>
-                        Close
+                        閉じる
                     </button>
                     {/* <button type="button" className="btn btn-primary">
                         Save changes
