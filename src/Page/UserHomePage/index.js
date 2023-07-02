@@ -29,6 +29,7 @@ function UserHomePage() {
         isOpen: false,
         isFree: false,
         isSort: false,
+        isReviewed: false,
     });
 
     const handleFilterChange = (type) => {
@@ -77,6 +78,13 @@ function UserHomePage() {
                 return true;
             }
         });
+        
+        if (filterStatus.isReviewed) {
+            getFilteredStores.sort((a, b) => {
+                return b.avg_rating - a.avg_rating;
+            });
+        }
+
         setFilterStores(getFilteredStores);
     }, [filterStatus, stores]);
 
