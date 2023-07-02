@@ -14,6 +14,7 @@ function HomePageNavBar({ onFilterChange }) {
         isOpen: false,
         isFree: false,
         isSort: false,
+        isReviewed: false,
     });
 
     const handleFilter = (type) => {
@@ -55,7 +56,12 @@ function HomePageNavBar({ onFilterChange }) {
                             >
                                 混雑状況
                             </Button>
-                            <Button className={cx('list-btn')}>日本人の評価</Button>
+                            <Button 
+                                className={cx('list-btn', { [cx('active')]: filter.isReviewed === true })}
+                                onClick={() => handleFilter('isReviewed')}
+                            >
+                                日本人の評価
+                            </Button>
                         </Space>
                     </div>
                     <div>
