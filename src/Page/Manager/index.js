@@ -9,26 +9,31 @@ function Manager(){
             title: 'ID',
             dataIndex: 'id',
             key: 'id', 
+            align: "center",
         },
         {
           title: '名前',
           dataIndex: 'name',
           key: 'name',
+          align: "center",
         },
         {
           title: '紹介文',
           dataIndex: 'introduction',
           key: 'introduction',
+          align: "center",
         },
         {
           title: '住所',
           dataIndex: 'address',
           key: 'address',
+          align: "center",
         },
         {
             title: '営業時間',
             dataIndex: 'businesshours',
             key: 'businesshours',
+            align: "center",
           },
       ];
       const [state, setstate] = useState([]);
