@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import styles from './CardCafe.scss';
+import './CardCafe.scss';
 import PopUpCafe from '../PopUpCafe';
 
 function CardCafe({ store }) {
