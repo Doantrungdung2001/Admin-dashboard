@@ -1,6 +1,7 @@
 import { Typography,Table,Button } from "antd";
 import React, { useEffect, useState } from 'react';
 import StoreAdmin from "../../services/StoreAdmin";
+import axios from 'axios';
 function Confirm(){
 
   const columns = [
@@ -72,11 +73,11 @@ function Confirm(){
                詳細を見る
               </Button>
 
-              <Button type="primary" style={{ background: "#50C78F", color: "black",marginRight: '15px' }} onClick={handleAcceptStoreClick}>
+              <Button type="primary" style={{ background: "#50C78F", color: "black",marginRight: '15px' }} onClick={() => handleAcceptStoreClick(record)}>
                 許可
               </Button>
 
-              <Button type="primary" style={{ background: "#E33963", color: "black",marginRight: '15px' }} onClick={handleRejectStoreClick}>
+              <Button type="primary" style={{ background: "#E33963", color: "black",marginRight: '15px' }} onClick={() => handleRejectStoreClick(record)}>
                 不許可
               </Button>
             </>
@@ -103,23 +104,48 @@ function Confirm(){
   ]
   const [state, setstate] = useState([]);
   const [loading, setloading] = useState(true);
+  const [status, setStatus] = useState();
 
   const handleCheckStoreClick= () => {
     // Xử lý logic khi button được click
     
   };
-  const handleAcceptStoreClick = () => {
+  const handleAcceptStoreClick = async (record) => {
+    console.log(record.id)
     // Xử lý logic khi button được click
-    
+  
+    try {
+      // await axios.put(`/api/stores/${record.id}`, null, {
+      //   params: { status: "accepted" },
+      //   headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      // });
+      await axios.put(`/api/stores/${record.id}`, { status: "accepted" }, {
+        headers: { "Content-Type": "application/json" }
+      });
+      
+      setStatus('accepted');
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
   };
-  const handleRejectStoreClick = () => {
+  const handleRejectStoreClick = async (record) => {
+    console.log(record.id)
     // Xử lý logic khi button được click
-   
+    try {
+      await axios.put(`/api/stores/${record.id}`, { status: "rejected" });
+      setStatus("rejected");
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
   };
   useEffect(() => {
     getData();
   }, []);  
 
+  useEffect(() => {
+    // Xử lý khi trạng thái status thay đổi
+    console.log(status);
+  }, [status]);
 
   const getData = async () => {
     try {
@@ -129,8 +155,8 @@ function Confirm(){
         response.map(row => ({
           key: row.id, // Thêm thuộc tính key với giá trị là id
           id: row.id,
-          creationdate: row.business_hour,
-          confirmationdate: row.business_hour,
+          creationdate: row.created_at,
+          confirmationdate: row.updated_at,
           situation: row.status,
           operation: row.status,
         }))
