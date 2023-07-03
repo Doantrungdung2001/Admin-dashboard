@@ -1,4 +1,4 @@
-import { faCheck, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faUserCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactStars from 'react-rating-stars-component';
 import { useEffect, useState } from 'react';
@@ -151,18 +151,18 @@ function ReviewCafe({ id }) {
                     </div>
                 ) : (
                     <div className="modal-content">
-                        <div className="modal-header">
+                        <div className="modal-header justify-content-center" style={{ alignItems: 'center' }}>
                             <FontAwesomeIcon
-                                icon={faCheck}
+                                icon={faXmark}
                                 className="text-danger"
                                 style={{ paddingRight: '8px', width: '12px' }}
                             />
                             <span>コメント失敗</span>
                         </div>
-                        <div className="modal-footer">
+                        <div className="modal-footer justify-content-center">
                             <button
                                 type="button"
-                                className="btn btn-success"
+                                className="btn btn-danger"
                                 data-bs-dismiss="modal"
                                 onClick={() => setStateShow(false)}
                             >

@@ -7,6 +7,7 @@ import AdminLayout from '../../Page/AdminLayout';
 import UserLayout from '../../Page/UserLayout';
 import UserHomePage from '../../Page/UserHomePage/index';
 import SignUp from '../../Page/SignUp/SignUp';
+import UserInformation from '../../Page/UserInformation';
 
 function AppRoutes() {
     return (
@@ -15,6 +16,7 @@ function AppRoutes() {
             <Route path="/" element={<UserLayout />}>
                 <Route path="/signup" element={<SignUp />} />
                 <Route index element={<UserHomePage />} />
+                <Route path="/user/information" element={<UserInformation />} />
             </Route>
 
             {/* Define admin routes here */}

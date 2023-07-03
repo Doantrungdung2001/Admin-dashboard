@@ -52,6 +52,7 @@ display: inherit;
 //   width: 20%;
   position: absolute;
   right: 0px;
+ 
 }
 
 .header-icon{
@@ -61,4 +62,11 @@ display: inherit;
 .down-icon{
    margin-left: 1px;
    font-size: 10px;
+}
+
+.profile{
+  line-height: 100%;
+  & :hover{
+    cursor: pointer;
+  }
 }
