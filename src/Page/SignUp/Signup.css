@@ -3,40 +3,40 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .signup-form {
+}
+
+.signup-form {
     width: 500px;
     padding: 20px;
     background: #f1f1f1;
     border-radius: 4px;
-  }
-  
-  .signup-form h2 {
+}
+
+.signup-form h2 {
     text-align: left;
     margin-bottom: 20px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 25px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  .form-row {
+}
+
+.form-row {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .form-col {
+}
+
+.form-col {
     flex: 1;
     margin-right: 10px;
-  }
-  
-  input[type='text'],
+}
+
+/* input[type='text'],
   input[type='tel'],
   input[type='email'],
   input[type='password'] {
@@ -54,5 +54,4 @@
     background: #4caf50;
     color: #fff;
     cursor: pointer;
-  }
-  
+  } */
