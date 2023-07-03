@@ -6,12 +6,14 @@ import Confirm from '../../Page/Confirm';
 import AdminLayout from '../../Page/AdminLayout';
 import UserLayout from '../../Page/UserLayout';
 import UserHomePage from '../../Page/UserHomePage/index';
+import SignUp from '../../Page/SignUp/SignUp';
 
 function AppRoutes() {
     return (
         <Routes>
             {/* Define user routes here */}
             <Route path="/" element={<UserLayout />}>
+                <Route path="/signup" element={<SignUp />} />
                 <Route index element={<UserHomePage />} />
             </Route>
 

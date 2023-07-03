@@ -12,7 +12,7 @@ function SideMenu() {
         color: "white",
         display: "flex",
         flexDirection: "column",
-        minHeight: "90vh",
+        minHeight: "100vh", 
     };
     return (
         <div className="SideMenu">
@@ -24,20 +24,16 @@ function SideMenu() {
                 }}
                 items={[
                     {
-                        label: "マップ画画",
-                        icon: <AppstoreAddOutlined />,
-                        key: "/admin",
+                        label: "喫茶店登録確認",
+                        icon: <AppstoreOutlined />,
+                        key: "/admin/confirm",
                     },
                     {
                         label: "喫茶店管理",
                         icon: <UnorderedListOutlined />,
                         key: "/admin/manage",
                     },
-                    {
-                        label: "喫茶店登録確認",
-                        icon: <AppstoreOutlined />,
-                        key: "/admin/confirm",
-                    },
+                    
                 ]}
             ></Menu>
         </div>
