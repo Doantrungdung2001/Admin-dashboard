@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DatePicker } from 'antd';
+import { DatePicker, message } from 'antd';
 import axios from 'axios';
 
 function SignUp() {
@@ -65,9 +65,20 @@ function SignUp() {
             })
             .then((res) => {
                 console.log(res);
+                message.success('サインアップが成功しました！', 10, { // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
+                    style: {
+                        fontSize: '30px', // Tùy chỉnh kích thước font chữ
+                    },
+                });
+                window.location.href = 'http://localhost:3000/signIn';
             })
             .catch((err) => {
                 console.log(err);
+                message.error('サインアップが失敗しました！', 10, { // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
+                    style: {
+                        fontSize: '30px', // Tùy chỉnh kích thước font chữ
+                    },
+                });
             });
     };
 
@@ -184,6 +195,7 @@ function SignUp() {
                                 性別:
                             </label>
                             <select
+                                style={formLable}
                                 id="gender"
                                 name="gender"
                                 onChange={(e) => setParams({ ...params, gender: e.target.value })}
