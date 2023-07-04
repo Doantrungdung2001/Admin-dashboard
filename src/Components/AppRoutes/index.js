@@ -7,14 +7,18 @@ import AdminLayout from '../../Page/AdminLayout';
 import UserLayout from '../../Page/UserLayout';
 import UserHomePage from '../../Page/UserHomePage/index';
 import SignUp from '../../Page/SignUp/SignUp';
+import RegisterDrinkShop from '../../Page/RegisterDrinkShop';
 import UserInformation from '../../Page/UserInformation';
+import SignIn from '../../Page/SignIn';
 
 function AppRoutes() {
     return (
         <Routes>
             {/* Define user routes here */}
             <Route path="/" element={<UserLayout />}>
+                <Route path="/registerDrinkShop" element={<RegisterDrinkShop />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/signIn" element={<SignIn />} />
                 <Route index element={<UserHomePage />} />
                 <Route path="/user/information" element={<UserInformation />} />
             </Route>
