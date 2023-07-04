@@ -95,7 +95,7 @@ function SignUp() {
           </div>
         </div>
       </div>
-      <button type="submit" style={{backgroundColor: "blue", color:"white" , padding: "10px 20px", width: "100%" , borderRadius: "4px", border: "none", cursor: "pointer"}}>Sign Up</button>
+      <button type="submit" style={{backgroundColor: "blue", color:"white" , padding: "10px 20px", width: "100%" , borderRadius: "4px", border: "none", cursor: "pointer"}}>Submit</button>
     </form>
   </div>
   ); 
