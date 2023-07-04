@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage, faLocation } from '@fortawesome/free-solid-svg-icons';
 import { useFormik } from 'formik';
@@ -10,13 +10,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { NavLink } from 'react-router-dom';
+import AuthContext from '../../Components/AuthContext';
 const RegisterDrinkShop = () => {
     // Pass the useFormik() hook initial form values and a submit function that will
     // be called when the form is submitted
     // const [imgUpload, setImageUpload] = useState(null);
     const [urlObj, setUrlObj] = useState({});
-    console.log('🚀 ~ file: index.js:14 ~ RegisterDrinkShop ~ urlObj:', urlObj);
     const [position, setPosition] = useState({});
+    const authContext = useContext(AuthContext);
+    console.log('🚀 ~ file: index.js:21 ~ RegisterDrinkShop ~ authContext:', authContext);
+
     const formik = useFormik({
         initialValues: {
             coordinates: '',
@@ -34,14 +37,16 @@ const RegisterDrinkShop = () => {
             parking_lot: '',
         },
         onSubmit: (values) => {
+            debugger;
             const body = {
                 ...values,
                 ...urlObj,
                 business_hour: values.businessHoursS + ' - ' + values.businessHoursE,
                 air_condition: false,
                 parking_lot: false,
-                owner_id: 1,
+                owner_id: authContext.currentUser,
             };
+            debugger;
             const createStores = async () => {
                 console.log(JSON.stringify(body));
                 const res = await StoreService.create(body);

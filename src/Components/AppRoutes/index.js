@@ -9,6 +9,7 @@ import UserHomePage from '../../Page/UserHomePage/index';
 import SignUp from '../../Page/SignUp/SignUp';
 import RegisterDrinkShop from '../../Page/RegisterDrinkShop';
 import UserInformation from '../../Page/UserInformation';
+import SignIn from '../../Page/SignIn';
 
 function AppRoutes() {
     return (
@@ -17,6 +18,7 @@ function AppRoutes() {
             <Route path="/" element={<UserLayout />}>
                 <Route path="/registerDrinkShop" element={<RegisterDrinkShop />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/signIn" element={<SignIn />} />
                 <Route index element={<UserHomePage />} />
                 <Route path="/user/information" element={<UserInformation />} />
             </Route>
