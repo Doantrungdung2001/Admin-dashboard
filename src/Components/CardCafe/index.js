@@ -31,7 +31,10 @@ function CardCafe({ store }) {
                         <PopUpCafe onClose={handleCloseModal} store={store} stateShow={modalIsOpen} />
 
                         <span>
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} /> {store.avg_rating}
+                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}
+                            {Number.isInteger(Number(store.avg_rating))
+                                ? Number(store.avg_rating)
+                                : Number(store.avg_rating).toFixed(2)}
                         </span>
                     </div>
                     <p className="card-text">{store.address}</p>

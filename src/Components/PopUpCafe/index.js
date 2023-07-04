@@ -58,7 +58,11 @@ function PopUpCafe({ onClose, stateShow, store }) {
                         {store.name}
                     </h5>
                     <div className="">
-                        <span style={{ paddingRight: '4px', opacity: '0.75' }}>{store.avg_rating}</span>
+                        <span style={{ paddingRight: '4px', opacity: '0.75' }}>
+                            {Number.isInteger(Number(store.avg_rating))
+                                ? Number(store.avg_rating)
+                                : Number(store.avg_rating).toFixed(2)}
+                        </span>
                         <FontAwesomeIcon icon={faStar} style={{ color: 'yellow' }} />
                         <p style={{ marginBottom: '8px', opacity: '0.75' }}>紹介</p>
                     </div>

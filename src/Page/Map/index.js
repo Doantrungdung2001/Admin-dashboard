@@ -130,7 +130,7 @@ function Map({ stores, userPosition, setUserPosition }) {
                     }}
                     icon={{
                         url: user,
-                        scaledSize: new window.google.maps.Size(20, 20),
+                        scaledSize: new window.google.maps.Size(30, 30),
                     }}
                 />
                 {stores.map((data) => (
