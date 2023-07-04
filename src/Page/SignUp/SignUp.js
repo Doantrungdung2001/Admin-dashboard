@@ -70,7 +70,7 @@ function SignUp() {
                         fontSize: '30px', // Tùy chỉnh kích thước font chữ
                     },
                 });
-                window.location.href = 'http://localhost:3000/admin/confirm';
+                window.location.href = 'http://localhost:3000/signIn';
             })
             .catch((err) => {
                 console.log(err);
