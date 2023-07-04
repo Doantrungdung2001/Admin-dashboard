@@ -19,7 +19,7 @@ function CardCafe({ store }) {
             <div className="card">
                 <div className="card-body">
                     <img
-                        src={store.picture}
+                        src={store.front_picture}
                         className="card-img-top mb-lg-2"
                         alt="Coffe"
                         style={{ width: 360 + 'px', height: 250 + 'px' }}

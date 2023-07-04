@@ -112,7 +112,7 @@ function ReviewCafe({ id }) {
                             <div className="d-flex" style={{ margin: '8px 0px' }}>
                                 <FontAwesomeIcon icon={faUserCircle} style={{ marginRight: '8px', fontSize: '32px' }} />
                                 <div className="d-flex flex-column" style={{ fontSize: '13px', marginTop: '-4px' }}>
-                                    <span>{review.history.user.name}</span>
+                                    <span>{review.user.name}</span>
                                     <span>{review.history.visited_time}</span>
                                 </div>
                             </div>
