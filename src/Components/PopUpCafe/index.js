@@ -53,7 +53,7 @@ function PopUpCafe({ onClose, stateShow, store }) {
                         paddingBottom: '0px',
                     }}
                 >
-                    <img src={store.picture} alt="cafe" style={{ height: 300 + 'px', width: 100 + '%' }} />
+                    <img src={store.front_picture} alt="cafe" style={{ height: 300 + 'px', width: 100 + '%' }} />
                     <h5 className="modal-title" style={{ padding: '8px 0px' }}>
                         {store.name}
                     </h5>

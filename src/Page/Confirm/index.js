@@ -121,7 +121,7 @@ function Confirm(){
     // Xử lý logic khi button được click
   
     try {      
-      await axios.put(`http://localhost:8000/api/stores/${record.id}/status`, { status: "accepted" }, {
+      await axios.patch(`http://localhost:8000/api/stores/${record.id}/status`, { status: "accepted" }, {
         headers: { "Content-Type": "application/json" }
       });
       
@@ -135,7 +135,7 @@ function Confirm(){
     console.log(record.id)
     // Xử lý logic khi button được click
     try {
-      await axios.put(`http://localhost:8000/api/stores/${record.id}/status`, { status: "rejected" }, {
+      await axios.patch(`http://localhost:8000/api/stores/${record.id}/status`, { status: "rejected" }, {
         headers: { "Content-Type": "application/json" }
       });
       setStatus('rejected');
