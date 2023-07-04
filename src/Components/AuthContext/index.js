@@ -7,9 +7,9 @@ export const AuthProvider = ({ children }) => {
     const logOut = () => {
         setCurrentUser('');
     };
-    const login = (id) => {
-        console.log('🚀 ~ file: index.js:11 ~ login ~ id:', id);
-        setCurrentUser(id);
+    const login = (user) => {
+        console.log('🚀 ~ file: index.js:11 ~ login ~ id:', user);
+        setCurrentUser(user);
     };
 
     return <AuthContext.Provider value={{ currentUser, logOut, login }}>{children}</AuthContext.Provider>;

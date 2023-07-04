@@ -19,7 +19,7 @@ function SignIn() {
             };
             const signIn = async () => {
                 const res = await UserService.createSession(body);
-                authContext.login(res.user.id);
+                authContext.login(res.user);
                 if (res.user.role === 'admin') {
                     navigate('/admin/confirm');
                 } else {
