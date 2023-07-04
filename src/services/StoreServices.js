@@ -25,4 +25,9 @@ export const StoreService = {
         }
         return stores;
     },
+
+    create: async function (store) {
+        const res = await axiosClient.post('/stores', store);
+        return res;
+    },
 };
