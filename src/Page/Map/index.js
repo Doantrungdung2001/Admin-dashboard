@@ -4,8 +4,8 @@ import user from '../../Images/user.png';
 import { CafeMarker } from './CafeMarker';
 
 const containerStyle = {
-    width: '580px',
-    height: '580px',
+    width: '720px',
+    height: '720px',
 };
 
 const mapStyles = [

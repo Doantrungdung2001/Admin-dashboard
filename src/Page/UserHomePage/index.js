@@ -104,10 +104,10 @@ function UserHomePage() {
         <>
             <HomePageHeader />
             <HomePageNavBar onFilterChange={handleFilterChange} />
-            <div className="container mx-3 ">
+            <div className="container-fluid mx-2">
                 <div className="mt-lg-4 mb-lg-4">
                     <div className="row">
-                        <div className="col-lg-9">
+                        <div className="col-lg-6">
                             <div className="row mb-lg-4">
                                 {filterStores.map((store, index) => {
                                     if (index < currentPage + 4 && index >= currentPage) {
@@ -129,7 +129,7 @@ function UserHomePage() {
                             )}
                         </div>
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-6">
                             <Map userPosition={userPosition} setUserPosition={setUserPosition} stores={stores} />
                         </div>
                     </div>

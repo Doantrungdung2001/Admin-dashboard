@@ -15,14 +15,14 @@ function CardCafe({ store }) {
         setModalIsOpen(false);
     };
     return (
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-lg-3">
             <div className="card">
                 <div className="card-body">
                     <img
-                        src={store.front_picture}
-                        className="card-img-top mb-lg-2"
-                        alt="Coffe"
-                        style={{ width: 360 + 'px', height: 250 + 'px' }}
+                        src={store.view_picture}
+                        className="card-img-top"
+                        alt="Coffee"
+                        style={{ width: 360 + 'px', height: 202.5 + 'px' }}
                     />
                     <div className="d-flex justify-content-between">
                         <h5 className="card-title name-cafe" onClick={handleOpenModal}>
@@ -31,7 +31,7 @@ function CardCafe({ store }) {
                         <PopUpCafe onClose={handleCloseModal} store={store} stateShow={modalIsOpen} />
 
                         <span>
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}
+                        <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}
                             {Number.isInteger(Number(store.avg_rating))
                                 ? Number(store.avg_rating)
                                 : Number(store.avg_rating).toFixed(2)}
