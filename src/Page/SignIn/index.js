@@ -8,7 +8,6 @@ import AuthContext from '../../Components/AuthContext';
 function SignIn() {
     const navigate = useNavigate();
     const authContext = useContext(AuthContext);
-    console.log('🚀 ~ file: index.js:11 ~ SignIn ~ authContext:', authContext);
     const formik = useFormik({
         initialValues: {
             email: '',

@@ -1,31 +1,18 @@
 import { createContext, useState } from 'react';
 
-const AuthContext = createContext({
-    email: '',
-    auth: false,
-});
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState({ id: '', auth: false });
-    console.log('🚀 ~ file: index.js:10 ~ AuthProvider ~ currentUser:', currentUser);
+    const [currentUser, setCurrentUser] = useState('');
     const logOut = () => {
-        setCurrentUser({
-            id: '',
-            auth: false,
-        });
+        setCurrentUser('');
     };
     const login = (id) => {
-        setCurrentUser({
-            id: id,
-            auth: true,
-        });
+        console.log('🚀 ~ file: index.js:11 ~ login ~ id:', id);
+        setCurrentUser(id);
     };
-    const authContext = {
-        currentUser: currentUser.id,
-        logOut: logOut,
-        login: login,
-    };
-    return <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>;
+
+    return <AuthContext.Provider value={{ currentUser, logOut, login }}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContext;

@@ -4,13 +4,16 @@ import PaginatedItems from '../../Components/Pagination';
 import HomePageNavBar from '../../Components/HomePageNavBar';
 import HomePageHeader from '../../Components/HomePageHeader';
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { StoreService } from '../../services/StoreServices';
 import { useSearchParams } from 'react-router-dom';
 import CardCafe from '../../Components/CardCafe';
 import { set } from 'immutable';
+import AuthContext from '../../Components/AuthContext';
 
 function UserHomePage() {
+    const authContext = useContext(AuthContext);
+    console.log('🚀 ~ file: index.js:15 ~ UserHomePage ~ authContext:', authContext);
     let [userPosition, setUserPosition] = useState({
         lat: 0,
         lng: 0,
@@ -78,7 +81,7 @@ function UserHomePage() {
                 return true;
             }
         });
-        
+
         if (filterStatus.isReviewed) {
             getFilteredStores.sort((a, b) => {
                 return b.avg_rating - a.avg_rating;
