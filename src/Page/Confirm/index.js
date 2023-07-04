@@ -23,7 +23,13 @@ function Confirm(){
       title: '確認日日',
       dataIndex: 'confirmationdate',
       align: "center",
-      width: "27%"
+      width: "27%",
+      render: (text, record) => {
+        if (record.situation !== "pending") {
+          return text;
+        }
+        return null;
+      }
     },
     {  
       title: '状態',
@@ -114,16 +120,13 @@ function Confirm(){
     console.log(record.id)
     // Xử lý logic khi button được click
   
-    try {
-      // await axios.put(`/api/stores/${record.id}`, null, {
-      //   params: { status: "accepted" },
-      //   headers: { "Content-Type": "application/x-www-form-urlencoded" }
-      // });
-      await axios.put(`/api/stores/${record.id}`, { status: "accepted" }, {
+    try {      
+      await axios.put(`http://localhost:8000/api/stores/${record.id}/status`, { status: "accepted" }, {
         headers: { "Content-Type": "application/json" }
       });
       
       setStatus('accepted');
+      window.location.reload();
     } catch (error) {
       console.error('Error updating data:', error);
     }
@@ -132,12 +135,16 @@ function Confirm(){
     console.log(record.id)
     // Xử lý logic khi button được click
     try {
-      await axios.put(`/api/stores/${record.id}`, { status: "rejected" });
-      setStatus("rejected");
+      await axios.put(`http://localhost:8000/api/stores/${record.id}/status`, { status: "rejected" }, {
+        headers: { "Content-Type": "application/json" }
+      });
+      setStatus('rejected');
+      window.location.reload();
     } catch (error) {
       console.error('Error updating data:', error);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);  

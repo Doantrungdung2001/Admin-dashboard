@@ -26,6 +26,7 @@ function HomePageHeader() {
                             <Badge count={15}>
                                 <BellOutlined className={cx('header-icon')} />
                             </Badge>
+
                             <div className={cx('profile', 'header-icon')}>
                                 <UserOutlined />
                                 <DownOutlined className={cx('down-icon')} />

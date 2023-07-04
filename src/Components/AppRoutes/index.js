@@ -8,6 +8,7 @@ import UserLayout from '../../Page/UserLayout';
 import UserHomePage from '../../Page/UserHomePage/index';
 import SignUp from '../../Page/SignUp/SignUp';
 import RegisterDrinkShop from '../../Page/RegisterDrinkShop';
+import UserInformation from '../../Page/UserInformation';
 
 function AppRoutes() {
     return (
@@ -17,6 +18,7 @@ function AppRoutes() {
                 <Route path="/registerDrinkShop" element={<RegisterDrinkShop />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route index element={<UserHomePage />} />
+                <Route path="/user/information" element={<UserInformation />} />
             </Route>
 
             {/* Define admin routes here */}
