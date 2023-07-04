@@ -1,5 +1,5 @@
 import Map from '../Map';
-
+import { useNavigate } from 'react-router-dom';
 import PaginatedItems from '../../Components/Pagination';
 import HomePageNavBar from '../../Components/HomePageNavBar';
 import HomePageHeader from '../../Components/HomePageHeader';
@@ -13,7 +13,12 @@ import AuthContext from '../../Components/AuthContext';
 
 function UserHomePage() {
     const authContext = useContext(AuthContext);
-    console.log('🚀 ~ file: index.js:15 ~ UserHomePage ~ authContext:', authContext);
+    const navigate = useNavigate();
+    (function authenticate() {
+        if (!authContext.currentUser) {
+            navigate('/signIn');
+        }
+    })();
     let [userPosition, setUserPosition] = useState({
         lat: 0,
         lng: 0,
@@ -34,7 +39,6 @@ function UserHomePage() {
         isSort: false,
         isReviewed: false,
     });
-
     const handleFilterChange = (type) => {
         setFilterStatus((prevStatus) => ({
             ...prevStatus,
