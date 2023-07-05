@@ -25,11 +25,11 @@ function UserInformation() {
     };
     console.log('userChange', user);
 
-    function handleGuest(e, numberGuests) {
+    function handleGuest(e, numberGuests, storeId) {
         e.preventDefault();
         console.log('do day', numberGuests);
         const updateGuests = async () => {
-            const res = await axios.put(`http://127.0.0.1:8000/api/stores/${user.id}/guests`, { guests: numberGuests });
+            const res = await axios.put(`http://127.0.0.1:8000/api/stores/${storeId}/guests`, { guests: numberGuests });
             console.log('update guest: ', res);
             if (res.statusText === 'OK') {
                 setCount((prev) => prev + 1);
@@ -57,10 +57,16 @@ function UserInformation() {
     function handleChangeInfo(e) {
         e.preventDefault();
         const updateUser = async () => {
-            const res = await axios.put(`http://127.0.0.1:8000/api/users/${user.id}`, { user: user });
+            const res = await axios.put(`http://127.0.0.1:8000/api/users/${user.id}`, {
+                name: user.name,
+                email: user.email,
+                phone_num: user.phone_num,
+                dob: user.dob,
+            });
             console.log('res update user :', res.data);
             setResponse(res.data.message);
             setStateShow(true);
+            authContext.login(res.data.user);
             return res.data;
         };
 
@@ -111,7 +117,11 @@ function UserInformation() {
                                                         style={{ cursor: 'pointer' }}
                                                         icon={faPlus}
                                                         onClick={(e) =>
-                                                            handleGuest(e, userStore.a_working_day.guests + 1)
+                                                            handleGuest(
+                                                                e,
+                                                                userStore.a_working_day.guests + 1,
+                                                                userStore.id,
+                                                            )
                                                         }
                                                     />
                                                     <FontAwesomeIcon
@@ -119,7 +129,11 @@ function UserInformation() {
                                                         style={{ cursor: 'pointer' }}
                                                         icon={faMinus}
                                                         onClick={(e) =>
-                                                            handleGuest(e, userStore.a_working_day.guests - 1)
+                                                            handleGuest(
+                                                                e,
+                                                                userStore.a_working_day.guests - 1,
+                                                                userStore.id,
+                                                            )
                                                         }
                                                     />
                                                     <span className="pl-1 pr-1" style={{ backgroundColor: '#ccc' }}>
@@ -129,7 +143,7 @@ function UserInformation() {
                                             </div>
                                         );
                                     })}
-                                    <NavLink exact to="/registerDrinkShop">
+                                    <NavLink to="/registerDrinkShop">
                                         <button href="#" className="btn btn-primary d-block mr-auto ml-auto mt-4">
                                             新しい喫茶店を追加す
                                         </button>
@@ -154,7 +168,7 @@ function UserInformation() {
                                         className="form-control"
                                         id="exampleInputEmail1"
                                         name="name"
-                                        placeholder={user.name}
+                                        value={user.name}
                                         onChange={handleData}
                                     />
                                 </div>
@@ -167,7 +181,7 @@ function UserInformation() {
                                         className="form-control"
                                         id="exampleInput"
                                         name="email"
-                                        placeholder={user.email}
+                                        value={user.email}
                                         onChange={handleData}
                                     />
                                 </div>
@@ -180,7 +194,7 @@ function UserInformation() {
                                             type=""
                                             className="form-control"
                                             name="phone_num"
-                                            placeholder={user.phone_num}
+                                            value={user.phone_num}
                                             onChange={handleData}
                                         />
                                     </div>
@@ -192,7 +206,7 @@ function UserInformation() {
                                             type="text"
                                             className="form-control"
                                             name="dob"
-                                            placeholder={user.dob}
+                                            value={user.dob}
                                             onChange={handleData}
                                         />
                                     </div>
