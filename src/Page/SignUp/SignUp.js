@@ -65,7 +65,8 @@ function SignUp() {
             })
             .then((res) => {
                 console.log(res);
-                message.success('サインアップが成功しました！', 10, { // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
+                message.success('サインアップが成功しました！', 10, {
+                    // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
                     style: {
                         fontSize: '30px', // Tùy chỉnh kích thước font chữ
                     },
@@ -74,7 +75,8 @@ function SignUp() {
             })
             .catch((err) => {
                 console.log(err);
-                message.error('サインアップが失敗しました！', 10, { // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
+                message.error('サインアップが失敗しました！', 10, {
+                    // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
                     style: {
                         fontSize: '30px', // Tùy chỉnh kích thước font chữ
                     },
@@ -215,14 +217,13 @@ function SignUp() {
                         backgroundColor: 'blue',
                         color: 'white',
                         padding: '10px 20px',
-                        width: '100%',
                         borderRadius: '4px',
                         border: 'none',
                         cursor: 'pointer',
                     }}
                     onClick={(e) => handleRegister(e)}
                 >
-                    Sign Up
+                    Submit
                 </button>
             </form>
         </div>
