@@ -52,7 +52,11 @@ function HomePageHeader() {
                                                         <span>Profile</span>
                                                     </li>
                                                 </NavLink>
-                                                <li className="list-group-item pt-0 pb-0">
+                                                <li
+                                                    className="list-group-item pt-0 pb-0"
+                                                    onClick={() => authContext.logOut()}
+                                                    style={{ cursor: 'pointer' }}
+                                                >
                                                     <FontAwesomeIcon
                                                         icon={faArrowRightFromBracket}
                                                         className="mr-1"

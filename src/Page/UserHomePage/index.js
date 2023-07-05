@@ -111,7 +111,9 @@ function UserHomePage() {
                             <div className="row mb-lg-4">
                                 {filterStores.map((store, index) => {
                                     if (index < currentPage + 4 && index >= currentPage) {
-                                        return <CardCafe key={index} store={store} />;
+                                        if (store.status === 'accepted') {
+                                            return <CardCafe key={index} store={store} />;
+                                        }
                                     }
                                 })}
                             </div>

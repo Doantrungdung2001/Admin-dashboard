@@ -31,7 +31,7 @@ function CardCafe({ store }) {
                         <PopUpCafe onClose={handleCloseModal} store={store} stateShow={modalIsOpen} />
 
                         <span>
-                        <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}
+                            <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}
                             {Number.isInteger(Number(store.avg_rating))
                                 ? Number(store.avg_rating)
                                 : Number(store.avg_rating).toFixed(2)}
@@ -41,10 +41,10 @@ function CardCafe({ store }) {
                     <div className="d-flex justify-content-between">
                         <h6 className="card-title">{`${store.a_working_day.guests} Guests`}</h6>
                         <div
-                            className={store.status ? 'card-status card-status__free' : 'card-status card-status__busy'}
+                            className={store.isFree ? 'card-status card-status__free' : 'card-status card-status__busy'}
                         >
                             <h6 className="card-title" style={{ margin: 0 + 'px' }}>
-                                {store.status ? 'Free' : 'Busy'}
+                                {store.isFree ? 'Free' : 'Busy'}
                             </h6>
                         </div>
                     </div>

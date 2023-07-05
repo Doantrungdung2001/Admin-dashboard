@@ -44,8 +44,8 @@ const RegisterDrinkShop = () => {
                 business_hour: values.businessHoursS + ' - ' + values.businessHoursE,
                 air_condition: false,
                 parking_lot: false,
-                owner_id: 1,
-                // owner_id: authContext.currentUser,
+                // owner_id: 1,
+                owner_id: authContext.currentUser.id,
             };
             debugger;
             const createStores = async () => {
