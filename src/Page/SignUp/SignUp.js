@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DatePicker, message } from 'antd';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../Components/AuthContext';
 
 function SignUp() {
+    const navigate = useNavigate();
+    const authContext = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();
         // Xử lý logic đăng nhập
@@ -65,13 +69,8 @@ function SignUp() {
             })
             .then((res) => {
                 console.log(res);
-                message.success('サインアップが成功しました！', 10, {
-                    // Tăng thời gian hiển thị và kiểu hiển thị của thông báo
-                    style: {
-                        fontSize: '30px', // Tùy chỉnh kích thước font chữ
-                    },
-                });
-                window.location.href = 'http://localhost:3000/signIn';
+                authContext.login(res.data.user);
+                navigate('/');
             })
             .catch((err) => {
                 console.log(err);

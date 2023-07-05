@@ -9,7 +9,7 @@ import { StoreService } from '../../services/StoreServices';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import AuthContext from '../../Components/AuthContext';
 const RegisterDrinkShop = () => {
     // Pass the useFormik() hook initial form values and a submit function that will
@@ -17,6 +17,7 @@ const RegisterDrinkShop = () => {
     // const [imgUpload, setImageUpload] = useState(null);
     const [urlObj, setUrlObj] = useState({});
     const [position, setPosition] = useState({});
+    const navigate = useNavigate();
     const authContext = useContext(AuthContext);
     console.log('🚀 ~ file: index.js:21 ~ RegisterDrinkShop ~ authContext:', authContext);
 
@@ -55,6 +56,7 @@ const RegisterDrinkShop = () => {
                 toast('Success!');
             };
             createStores();
+            navigate('/');
         },
     });
 
@@ -366,9 +368,7 @@ const RegisterDrinkShop = () => {
                                 <td className="w-1/2">
                                     <div className="flex flex-col">
                                         <div className="m-0" htmlFor="parking_lot">
-                                            <span className="relative after:content-['*'] after:text-red-500 after:absolute after:top-[-6px] after:right-[-12px] after:text-xl">
-                                                喫茶店の駐車場
-                                            </span>
+                                            <span>喫茶店の駐車場</span>
                                         </div>
                                         <div className="w-full border-b-2 border-slate-400 flex justify-between">
                                             <span className="italic">

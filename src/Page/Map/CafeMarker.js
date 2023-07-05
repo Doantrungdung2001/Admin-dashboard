@@ -13,7 +13,7 @@ export const CafeMarker = ({ data }) => {
                 lng: parseFloat(data.coordinates.longitude),
             }}
             icon={{
-                url: data.status ? free : busy,
+                url: data.isFree ? free : busy,
                 scaledSize: new window.google.maps.Size(40, 30),
             }}
             onClick={() => setShowInfoWindow(!showInfoWindow)}

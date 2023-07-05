@@ -41,15 +41,15 @@ const mapStyles = [
             },
         ],
     },
-    {
-        featureType: 'road',
-        elementType: 'labels',
-        stylers: [
-            {
-                visibility: 'off',
-            },
-        ],
-    },
+    // {
+    //     featureType: 'road',
+    //     elementType: 'labels',
+    //     stylers: [
+    //         {
+    //             visibility: 'off',
+    //         },
+    //     ],
+    // },
 ];
 
 function Map({ stores, userPosition, setUserPosition }) {
