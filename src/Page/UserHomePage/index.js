@@ -10,15 +10,13 @@ import { useSearchParams } from 'react-router-dom';
 import CardCafe from '../../Components/CardCafe';
 import { set } from 'immutable';
 import AuthContext from '../../Components/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UserHomePage() {
     const authContext = useContext(AuthContext);
     const navigate = useNavigate();
-    (function authenticate() {
-        if (!authContext.currentUser) {
-            navigate('/signIn');
-        }
-    })();
+
     let [userPosition, setUserPosition] = useState({
         lat: 0,
         lng: 0,
@@ -45,6 +43,14 @@ function UserHomePage() {
             [type]: !prevStatus[type],
         }));
     };
+
+    useEffect(() => {
+        (function authenticate() {
+            if (!authContext.currentUser) {
+                navigate('/signIn');
+            }
+        })();
+    }, []);
 
     useEffect(() => {
         async function getStore() {
@@ -104,6 +110,7 @@ function UserHomePage() {
         <>
             <HomePageHeader />
             <HomePageNavBar onFilterChange={handleFilterChange} />
+            <ToastContainer />
             <div className="container-fluid mx-2">
                 <div className="mt-lg-4 mb-lg-4">
                     <div className="row">

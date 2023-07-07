@@ -8,6 +8,8 @@ import { storage } from '../../firebase';
 import { StoreService } from '../../services/StoreServices';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from 'yup';
+import moment from 'moment';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 import AuthContext from '../../Components/AuthContext';
@@ -19,7 +21,34 @@ const RegisterDrinkShop = () => {
     const [position, setPosition] = useState({});
     const navigate = useNavigate();
     const authContext = useContext(AuthContext);
-    console.log('🚀 ~ file: index.js:21 ~ RegisterDrinkShop ~ authContext:', authContext);
+    const format12hour = /((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))/;
+    // Validate form
+    const RegisterSchema = Yup.object().shape({
+        coordinates: Yup.string().required('Location 必要!'),
+        name: Yup.string().required('喫茶店の名前: 必要!'),
+        address: Yup.string().min(2, '短すぎる').max(50, '長すぎる').required('アドレス: 必要!'),
+        businessHoursS: Yup.string().matches(format12hour, '開始時間の形式: 8:00am').required('営業時間: 必要!'),
+        businessHoursE: Yup.string()
+            .matches(format12hour, '時間の形式: 10:00pm')
+            .required('終了営業時間: 必要!')
+            .test('is-greater', '終了時間をもっと長くする必要があります', function (value) {
+                const { businessHoursS } = this.parent; // Lấy giá trị của trường 'startTime' trong form
+                if (!businessHoursS || !value) return true; // Nếu trường 'startTime' hoặc 'endTime' rỗng thì bỏ qua validation
+                const startTimeMoment = moment(businessHoursS, 'h:mm A'); // Chuyển đổi giá trị của 'startTime' thành một đối tượng moment
+                const endTimeMoment = moment(value, 'h:mm A'); // Chuyển đổi giá trị của 'endTime' thành một đối tượng moment
+                if (!endTimeMoment.isValid()) return false; // Nếu 'endTime' không hợp lệ thì không validate
+                return endTimeMoment.isAfter(startTimeMoment); // Trả về true nếu 'endTime' sau 'startTime'
+            }),
+        max_capacity: Yup.number()
+            .required('席の数 必要!')
+            .positive('ポジティブである必要があります!')
+            .typeError('数値でなければなりません'),
+        front_picture: Yup.string().required('喫茶店のフロント: 必要!'),
+        view_picture: Yup.string().required('喫茶店のビュー: 必要!'),
+        business_license_pic: Yup.string().required('喫茶店の営業許可証: 必要!'),
+        inside_picture: Yup.string().required('喫茶店の中身の写真: 必要!'),
+        ac_picture: Yup.string().required('喫茶店のエアコン: 必要!'),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -37,8 +66,9 @@ const RegisterDrinkShop = () => {
             ac_picture: '',
             parking_lot: '',
         },
+        validationSchema: RegisterSchema,
+        validateOnChange: false,
         onSubmit: (values) => {
-            debugger;
             const body = {
                 ...values,
                 ...urlObj,
@@ -48,14 +78,13 @@ const RegisterDrinkShop = () => {
                 // owner_id: 1,
                 owner_id: authContext.currentUser.id,
             };
-            debugger;
             const createStores = async () => {
                 console.log(JSON.stringify(body));
                 const res = await StoreService.create(body);
-                console.log('🚀 ~ file: index.js:40 ~ RegisterDrinkShop ~ res:', res);
                 toast('Success!');
             };
             createStores();
+
             navigate('/');
         },
     });
@@ -74,6 +103,7 @@ const RegisterDrinkShop = () => {
         });
     };
 
+    console.log('🚀 ~ file: index.js:101 ~ RegisterDrinkShop ~ formik.errors.name:', formik.errors.address);
     const handleCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords;
@@ -98,6 +128,11 @@ const RegisterDrinkShop = () => {
                                 <th colSpan="2">
                                     <div className="py-4">
                                         <h1 className="text-3xl font-bold ">喫茶店の登録フォーム</h1>
+                                        {formik.errors && Object.keys(formik.errors).length > 0 && (
+                                            <div className="text-red-500 bold mb-3">
+                                                {Object.values(formik.errors)[0]}
+                                            </div>
+                                        )}
                                         <h2 className="text-lg">以下のボタンをクリックして、現在地を利用できます。</h2>
                                         <div
                                             className=" relative bg-teal-500 rounded-md p-1 px-3 focus:outline-none hover:bg-teal-300 active:bg-teal-400 w-fit"
@@ -108,6 +143,9 @@ const RegisterDrinkShop = () => {
                                                 Use my location {formik.values.coordinates}
                                             </span>
                                         </div>
+                                        {formik.errors.coordinates && formik.touched.coordinates && (
+                                            <div>{formik.errors.coordinates}</div>
+                                        )}
                                     </div>
                                 </th>
                             </tr>
