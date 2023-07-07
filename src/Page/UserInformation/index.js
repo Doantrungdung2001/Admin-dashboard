@@ -29,7 +29,9 @@ function UserInformation() {
         e.preventDefault();
         console.log('do day', numberGuests);
         const updateGuests = async () => {
-            const res = await axios.put(`http://127.0.0.1:8000/api/stores/${storeId}/guests`, { guests: numberGuests });
+            const res = await axios.put(`${process.env.REACT_APP_BACKEND_API_URL}/stores/${storeId}/guests`, {
+                guests: numberGuests,
+            });
             console.log('update guest: ', res);
             if (res.statusText === 'OK') {
                 setCount((prev) => prev + 1);
@@ -43,7 +45,7 @@ function UserInformation() {
     useEffect(() => {
         console.log('call lay coffe');
         axios
-            .get(`http://127.0.0.1:8000/api/stores?user_id=${user.id}`)
+            .get(`${process.env.REACT_APP_BACKEND_API_URL}/stores?user_id=${user.id}`)
             .then((response) => {
                 setUserStores(response.data);
             })
@@ -57,7 +59,7 @@ function UserInformation() {
     function handleChangeInfo(e) {
         e.preventDefault();
         const updateUser = async () => {
-            const res = await axios.put(`http://127.0.0.1:8000/api/users/${user.id}`, {
+            const res = await axios.put(`${process.env.REACT_APP_BACKEND_API_URL}/users/${user.id}`, {
                 name: user.name,
                 email: user.email,
                 phone_num: user.phone_num,

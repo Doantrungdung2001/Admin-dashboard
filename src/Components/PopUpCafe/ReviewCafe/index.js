@@ -52,7 +52,7 @@ function ReviewCafe({ id }) {
     const handleData = () => {
         if (stars && comment) {
             axios
-                .post('http://127.0.0.1:8000/api/reviews', data)
+                .post(`${process.env.REACT_APP_BACKEND_API_URL}/reviews`, data)
                 .then((response) => {
                     console.log(response.data.message);
                     setStateShow(true);

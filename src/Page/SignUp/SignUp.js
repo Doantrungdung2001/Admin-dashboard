@@ -57,7 +57,7 @@ function SignUp() {
     const handleRegister = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:8000/api/auth/register', {
+            .post(`${process.env.REACT_APP_BACKEND_API_URL}/auth/register`, {
                 name: params.name,
                 email: params.email,
                 phone_num: params.phone_num,
