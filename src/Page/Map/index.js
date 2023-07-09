@@ -62,8 +62,7 @@ function Map({ stores, userPosition, setUserPosition }) {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE',
-        // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
         language: 'ja',
     });
 
