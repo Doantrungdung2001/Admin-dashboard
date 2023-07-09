@@ -114,7 +114,7 @@ function Map({ stores, userPosition, setUserPosition }) {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={userPosition}
-                zoom={10}
+                zoom={15}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
                 onClick={(e) => {
@@ -132,9 +132,11 @@ function Map({ stores, userPosition, setUserPosition }) {
                         scaledSize: new window.google.maps.Size(30, 30),
                     }}
                 />
-                {stores.map((data) => (
-                    <CafeMarker key={data.id} data={data} />
-                ))}
+                {stores.map((data) => {
+                    if (data.status === 'accepted') {
+                        return <CafeMarker key={data.id} data={data} />;
+                    }
+                })}
             </GoogleMap>
         </div>
     ) : (
