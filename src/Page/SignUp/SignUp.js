@@ -72,6 +72,7 @@ function SignUp() {
                 authContext.login(res.data.user);
                 navigate('/');
             })
+            
             .catch((err) => {
                 console.log(err);
                 message.error('サインアップが失敗しました！', 10, {
