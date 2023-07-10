@@ -87,7 +87,7 @@ function UserHomePage() {
             } else if (filterStatus.isOpen) {
                 return store.isOpen;
             } else if (filterStatus.isFree) {
-                return store.status;
+                return store.isFree;
             } else {
                 return true;
             }

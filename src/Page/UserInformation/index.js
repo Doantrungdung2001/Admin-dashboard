@@ -36,6 +36,14 @@ function UserInformation() {
             if (res.statusText === 'OK') {
                 setCount((prev) => prev + 1);
             }
+            setUserStores(
+                userStores.map((store) => {
+                    if (store.id === storeId) {
+                        store.a_working_day.guests = numberGuests;
+                    }
+                    return store;
+                }),
+            );
             console.log(count);
             return res.data;
         };
