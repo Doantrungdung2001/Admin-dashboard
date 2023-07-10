@@ -12,7 +12,7 @@ import GlobalStyles from "./Components/GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename = "https://deploy-hyaku.netlify.app/">
+  <BrowserRouter>
     <GlobalStyles>
       <App />
     </GlobalStyles>
