@@ -167,7 +167,7 @@ function Confirm() {
             );
             setStatus('rejected');
             // window.location.reload();
-            message.('不許可です');
+            message.success('不許可です');
         } catch (error) {
             console.success('Error updating data:', error);
         }
