@@ -148,6 +148,14 @@ function Confirm() {
             );
 
             setStatus('accepted');
+            setstate(
+                state.map((value) => {
+                    if (value.id === record.id) {
+                        value.status = 'accepted';
+                    }
+                    return value;
+                }),
+            );
             // window.location.reload();
             message.success('許可です');
         } catch (error) {
@@ -166,8 +174,16 @@ function Confirm() {
                 },
             );
             setStatus('rejected');
+            setstate(
+                state.map((value) => {
+                    if (value.id === record.id) {
+                        value.status = 'rejected';
+                    }
+                    return value;
+                }),
+            );
             // window.location.reload();
-            message.success('不許可です');
+            message.error('不許可です');
         } catch (error) {
             console.success('Error updating data:', error);
         }
