@@ -1,11 +1,12 @@
 import { faCheck, faUserCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactStars from 'react-rating-stars-component';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Stars from '../../Stars';
 import classNames from 'classnames';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
+import AuthContext from '../../AuthContext';
 
 function ReviewCafe({ id }) {
     console.log('id quann', id);
@@ -16,12 +17,16 @@ function ReviewCafe({ id }) {
     const [response, setResponse] = useState('');
     const [countSuccess, setCountSucess] = useState(0);
     const [stateShow, setStateShow] = useState(false);
+    const authContext = useContext(AuthContext);
 
     useEffect(() => {
         console.log('call API comment');
         fetch(`${process.env.REACT_APP_BACKEND_API_URL}/reviews?store_id=${id}`)
             .then((response) => response.json())
-            .then((data) => setReviews(data));
+            .then((data) => {
+                console.log(data);
+                setReviews(data);
+            });
     }, [countSuccess]);
     // console.log('dem comment', countSuccess);
 
@@ -52,7 +57,13 @@ function ReviewCafe({ id }) {
     const handleData = () => {
         if (stars && comment) {
             axios
-                .post(`${process.env.REACT_APP_BACKEND_API_URL}/reviews`, data)
+                .post(`${process.env.REACT_APP_BACKEND_API_URL}/reviews`, {
+                    stars: stars,
+                    comment: comment,
+                    store_id: id,
+                    picture: '',
+                    user_id: authContext.currentUser.id,
+                })
                 .then((response) => {
                     console.log(response.data.message);
                     setStateShow(true);
@@ -113,7 +124,7 @@ function ReviewCafe({ id }) {
                                 <FontAwesomeIcon icon={faUserCircle} style={{ marginRight: '8px', fontSize: '32px' }} />
                                 <div className="d-flex flex-column" style={{ fontSize: '13px', marginTop: '-4px' }}>
                                     <span>{review.user.name}</span>
-                                    <span>{review.history.visited_time}</span>
+                                    <span>{review.history?.visited_time}</span>
                                 </div>
                             </div>
                             <div>
