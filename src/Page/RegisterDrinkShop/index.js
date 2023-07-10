@@ -73,8 +73,8 @@ const RegisterDrinkShop = () => {
                 ...values,
                 ...urlObj,
                 business_hour: values.businessHoursS + ' - ' + values.businessHoursE,
-                air_condition: false,
-                parking_lot: false,
+                air_condition: values.ac_picture ? true : false,
+                parking_lot: values.parking_lot ? true : false,
                 // owner_id: 1,
                 owner_id: authContext.currentUser.id,
             };

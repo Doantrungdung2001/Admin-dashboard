@@ -177,7 +177,7 @@ function Confirm() {
             setstate(
                 state.map((value) => {
                     if (value.id === record.id) {
-                        value.status = 'rejected';
+                        value.situation = 'rejected';
                     }
                     return value;
                 }),
