@@ -64,6 +64,7 @@ function UserHomePage() {
                 5000,
                 searchParams.get('search'),
                 filterStatus.isSort,
+                true,
             );
             return data;
         }
