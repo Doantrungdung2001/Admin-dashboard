@@ -19,7 +19,7 @@ function ReviewCafe({ id }) {
 
     useEffect(() => {
         console.log('call API comment');
-        fetch(`http://127.0.0.1:8000/api/reviews?store_id=${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_API_URL}/reviews?store_id=${id}`)
             .then((response) => response.json())
             .then((data) => setReviews(data));
     }, [countSuccess]);
