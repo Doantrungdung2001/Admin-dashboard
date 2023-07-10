@@ -1,4 +1,4 @@
-import { Typography, Table, Button } from 'antd';
+import { Typography, Table, Button, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import StoreAdmin from '../../services/StoreAdmin';
 import axios from 'axios';
@@ -148,7 +148,8 @@ function Confirm() {
             );
 
             setStatus('accepted');
-            window.location.reload();
+            // window.location.reload();
+            message.success('許可です');
         } catch (error) {
             console.error('Error updating data:', error);
         }
@@ -165,9 +166,10 @@ function Confirm() {
                 },
             );
             setStatus('rejected');
-            window.location.reload();
+            // window.location.reload();
+            message.('不許可です');
         } catch (error) {
-            console.error('Error updating data:', error);
+            console.success('Error updating data:', error);
         }
     };
 
