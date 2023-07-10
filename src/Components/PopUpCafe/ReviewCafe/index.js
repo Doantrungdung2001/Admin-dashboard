@@ -117,23 +117,35 @@ function ReviewCafe({ id }) {
                     </div>
                 </div>
 
-                {reviews.map((review) => {
-                    return (
-                        <div className="border-top border-bottom">
-                            <div className="d-flex" style={{ margin: '8px 0px' }}>
-                                <FontAwesomeIcon icon={faUserCircle} style={{ marginRight: '8px', fontSize: '32px' }} />
-                                <div className="d-flex flex-column" style={{ fontSize: '13px', marginTop: '-4px' }}>
-                                    <span>{review.user.name}</span>
-                                    <span>{review.history?.visited_time}</span>
-                                </div>
-                            </div>
-                            <div>
-                                <Stars ratting={review.stars} />
-                                <p style={{ marginBottom: '8px' }}>{review.comment}</p>
-                                {/* <img src={review.picture} alt="" style={{ width: '40px', height: '40px' }} /> */}
-                            </div>
-                        </div>
-                    );
+                {reviews.map((review, index) => {
+                    let renderElement;
+                    // eslint-disable-next-line no-unused-vars
+                    review.user.nationality === 'japanese'
+                        ? (renderElement = (
+                              <div className="border-top border-bottom" key={index}>
+                                  <div className="d-flex" style={{ margin: '8px 0px' }}>
+                                      <FontAwesomeIcon
+                                          icon={faUserCircle}
+                                          style={{ marginRight: '8px', fontSize: '32px' }}
+                                      />
+                                      <div
+                                          className="d-flex flex-column"
+                                          style={{ fontSize: '13px', marginTop: '-4px' }}
+                                      >
+                                          <span>{review.user.name}</span>
+                                          <span>{review.history?.visited_time}</span>
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <Stars ratting={review.stars} />
+                                      <p style={{ marginBottom: '8px' }}>{review.comment}</p>
+                                      {/* <img src={review.picture} alt="" style={{ width: '40px', height: '40px' }} /> */}
+                                  </div>
+                              </div>
+                          ))
+                        : // eslint-disable-next-line no-unused-vars
+                          (renderElement = <></>);
+                    return renderElement;
                 })}
             </div>
             <Modal show={stateShow} style={{ marginTop: '17%' }}>
