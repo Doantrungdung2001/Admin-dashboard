@@ -148,9 +148,7 @@ function Confirm() {
             );
 
             setStatus('accepted');
-            useEffect(() => {
-                window.location.reload();
-            }, []);
+            window.location.reload();
         } catch (error) {
             console.error('Error updating data:', error);
         }
@@ -167,9 +165,7 @@ function Confirm() {
                 },
             );
             setStatus('rejected');
-            useEffect(() => {
-                window.location.reload();
-            }, []);
+            window.location.reload();
         } catch (error) {
             console.error('Error updating data:', error);
         }
