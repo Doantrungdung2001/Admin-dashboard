@@ -10,7 +10,7 @@ import IntroduceCafe from './IntroduceCafe';
 
 // const cx = classNames.bind(styles);
 
-function PopUpCafe({ onClose, stateShow, store }) {
+function PopUpCafe({ onClose, stateShow, store, isJapanese }) {
     const [nav, setNav] = useState(0);
     const handleInfomationCafe = () => {
         setNav(0);
@@ -29,7 +29,7 @@ function PopUpCafe({ onClose, stateShow, store }) {
             contentPopUp = <InformationCafe store={store} />;
             break;
         case 1:
-            contentPopUp = <ReviewCafe id={store.id} />;
+            contentPopUp = <ReviewCafe id={store.id} isJapanese={isJapanese} />;
             break;
         case 2:
             contentPopUp = <IntroduceCafe store={store} />;

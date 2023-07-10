@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import AuthContext from '../../AuthContext';
 
-function ReviewCafe({ id }) {
+function ReviewCafe({ id, isJapanese }) {
     console.log('id quann', id);
     const [reviews, setReviews] = useState([]);
     const [stars, setStarts] = useState();
@@ -117,11 +117,35 @@ function ReviewCafe({ id }) {
                     </div>
                 </div>
 
-                {reviews.map((review, index) => {
-                    let renderElement;
-                    // eslint-disable-next-line no-unused-vars
-                    review.user.nationality === 'japanese'
-                        ? (renderElement = (
+                {isJapanese
+                    ? reviews.map((review, index) => {
+                          if (review.user?.nationality === 'japanese') {
+                              return (
+                                  <div className="border-top border-bottom" key={index}>
+                                      <div className="d-flex" style={{ margin: '8px 0px' }}>
+                                          <FontAwesomeIcon
+                                              icon={faUserCircle}
+                                              style={{ marginRight: '8px', fontSize: '32px' }}
+                                          />
+                                          <div
+                                              className="d-flex flex-column"
+                                              style={{ fontSize: '13px', marginTop: '-4px' }}
+                                          >
+                                              <span>{review.user.name}</span>
+                                              <span>{review.history?.visited_time}</span>
+                                          </div>
+                                      </div>
+                                      <div>
+                                          <Stars ratting={review.stars} />
+                                          <p style={{ marginBottom: '8px' }}>{review.comment}</p>
+                                          {/* <img src={review.picture} alt="" style={{ width: '40px', height: '40px' }} /> */}
+                                      </div>
+                                  </div>
+                              );
+                          }
+                      })
+                    : reviews.map((review, index) => {
+                          return (
                               <div className="border-top border-bottom" key={index}>
                                   <div className="d-flex" style={{ margin: '8px 0px' }}>
                                       <FontAwesomeIcon
@@ -142,11 +166,8 @@ function ReviewCafe({ id }) {
                                       {/* <img src={review.picture} alt="" style={{ width: '40px', height: '40px' }} /> */}
                                   </div>
                               </div>
-                          ))
-                        : // eslint-disable-next-line no-unused-vars
-                          (renderElement = <></>);
-                    return renderElement;
-                })}
+                          );
+                      })}
             </div>
             <Modal show={stateShow} style={{ marginTop: '17%' }}>
                 {response === 'success' ? (

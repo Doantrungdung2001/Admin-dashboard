@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './CardCafe.scss';
 import PopUpCafe from '../PopUpCafe';
 
-function CardCafe({ store }) {
+function CardCafe({ store, isJapanese }) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -28,7 +28,12 @@ function CardCafe({ store }) {
                         <h5 className="card-title name-cafe" onClick={handleOpenModal}>
                             {store.name}
                         </h5>
-                        <PopUpCafe onClose={handleCloseModal} store={store} stateShow={modalIsOpen} />
+                        <PopUpCafe
+                            onClose={handleCloseModal}
+                            store={store}
+                            stateShow={modalIsOpen}
+                            isJapanese={isJapanese}
+                        />
 
                         <span>
                             <FontAwesomeIcon icon={faStar} style={{ color: '#E3E640' }} />{' '}

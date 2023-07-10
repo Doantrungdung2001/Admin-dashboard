@@ -93,11 +93,11 @@ function UserHomePage() {
             }
         });
 
-        if (filterStatus.isReviewed) {
-            getFilteredStores.sort((a, b) => {
-                return b.avg_rating - a.avg_rating;
-            });
-        }
+        // if (filterStatus.isReviewed) {
+        //     getFilteredStores.sort((a, b) => {
+        //         return b.avg_rating - a.avg_rating;
+        //     });
+        // }
 
         setFilterStores(getFilteredStores);
     }, [filterStatus, stores]);
@@ -120,7 +120,13 @@ function UserHomePage() {
                                 {filterStores.map((store, index) => {
                                     if (index < currentPage + 4 && index >= currentPage) {
                                         if (store.status === 'accepted') {
-                                            return <CardCafe key={index} store={store} />;
+                                            return (
+                                                <CardCafe
+                                                    key={index}
+                                                    store={store}
+                                                    isJapanese={filterStatus.isReviewed}
+                                                />
+                                            );
                                         }
                                     }
                                 })}
