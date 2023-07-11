@@ -47,7 +47,7 @@ function SignUp() {
         name: '',
         email: '',
         phone_num: '',
-        password: '123456',
+        password: '',
         gender: 'male',
         role: 'guest_and_owner',
         dob: '',
@@ -207,6 +207,31 @@ function SignUp() {
                                 <option value="female">女性</option>
                                 {/* Thêm các tùy chọn giới tính khác vào đây */}
                             </select>
+                        </div>
+                    </div>
+                    <div style={formRow}>
+                        <div style={formCols}></div>
+                        <div style={formCols}>
+                            <label style={formLable} htmlFor="password">
+                                パスワード:
+                            </label>
+                            <input
+                                style={formInput}
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={params.password}
+                                onChange={(e) => setParams({ ...params, password: e.target.value })}
+                                onClick={function myFunction() {
+                                    var x = document.getElementById('password');
+                                    if (x.type === 'password') {
+                                        x.type = 'text';
+                                    } else {
+                                        x.type = 'password';
+                                    }
+                                }}
+                                required
+                            />
                         </div>
                     </div>
                 </div>
