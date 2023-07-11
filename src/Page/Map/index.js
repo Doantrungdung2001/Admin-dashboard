@@ -68,16 +68,13 @@ function Map({ stores, userPosition, setUserPosition }) {
 
     const [map, setMap] = React.useState(null);
 
-    const onLoad = React.useCallback(
-        function callback(map) {
-            // This is just an example of getting and using the map instance!!! don't just blindly copy!
-            // const bounds = new window.google.maps.LatLngBounds(userPosition);
-            // map.fitBounds(bounds);
+    const onLoad = React.useCallback(function callback(map) {
+        // This is just an example of getting and using the map instance!!! don't just blindly copy!
+        // const bounds = new window.google.maps.LatLngBounds(userPosition);
+        // map.fitBounds(bounds);
 
-            setMap(map);
-        },
-        [userPosition],
-    );
+        setMap(map);
+    }, []);
 
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null);
