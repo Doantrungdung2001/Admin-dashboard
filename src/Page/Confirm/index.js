@@ -1,9 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Typography, Table, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import StoreAdmin from '../../services/StoreAdmin';
-import { Link } from 'react-router-dom';
-
 import axios from 'axios';
 function Confirm() {
     const columns = [
@@ -77,12 +74,14 @@ function Confirm() {
                 if (record.situation === 'pending') {
                     return (
                         <>
-                            <Link
-                                className={`p-2 rounded-lg bg-blue-300 text-black mr-2`}
-                                to={`/admin/stores/${record.id}`}
+                            <Button
+                                type="primary"
+                                style={{ background: '#3A85E0', color: 'black', marginRight: '15px' }}
+                                onClick={handleCheckStoreClick}
                             >
                                 詳細を見る
-                            </Link>
+                            </Button>
+
                             <Button
                                 type="primary"
                                 style={{ background: '#50C78F', color: 'black', marginRight: '15px' }}
@@ -103,23 +102,25 @@ function Confirm() {
                 } else if (record.situation === 'accepted') {
                     return (
                         <>
-                            <Link
-                                className={`p-2 rounded-lg bg-blue-300 text-black mr-2`}
-                                to={`/admin/stores/${record.id}`}
+                            <Button
+                                type="primary"
+                                style={{ background: '#3A85E0', color: 'black' }}
+                                onClick={handleCheckStoreClick}
                             >
                                 詳細を見る
-                            </Link>
+                            </Button>
                         </>
                     );
                 } else {
                     return (
                         <>
-                            <Link
-                                className={`p-2 rounded-lg bg-blue-300 text-black mr-2`}
-                                to={`/admin/stores/${record.id}`}
+                            <Button
+                                type="primary"
+                                style={{ background: '#3A85E0', color: 'black' }}
+                                onClick={handleCheckStoreClick}
                             >
                                 詳細を見る
-                            </Link>
+                            </Button>
                         </>
                     );
                 }
@@ -130,16 +131,16 @@ function Confirm() {
     const [loading, setloading] = useState(true);
     const [status, setStatus] = useState();
 
-    // const handleCheckStoreClick = () => {
-    //     // Xử lý logic khi button được click
-    // };
+    const handleCheckStoreClick = () => {
+        // Xử lý logic khi button được click
+    };
     const handleAcceptStoreClick = async (record) => {
         console.log(record.id);
-        // Xử lý logic khi accept button được click
+        // Xử lý logic khi button được click
 
         try {
             await axios.patch(
-                `${process.env.REACT_APP_BACKEND_API_URL}/stores/${record.id}/status`,
+                `http://localhost:8000/api/stores/${record.id}/status`,
                 { status: 'accepted' },
                 {
                     headers: { 'Content-Type': 'application/json' },
@@ -154,10 +155,10 @@ function Confirm() {
     };
     const handleRejectStoreClick = async (record) => {
         console.log(record.id);
-        // Xử lý logic khi reject button được click
+        // Xử lý logic khi button được click
         try {
             await axios.patch(
-                `${process.env.REACT_APP_BACKEND_API_URL}/stores/${record.id}/status`,
+                `http://localhost:8000/api/stores/${record.id}/status`,
                 { status: 'rejected' },
                 {
                     headers: { 'Content-Type': 'application/json' },

@@ -10,7 +10,6 @@ import SignUp from '../../Page/SignUp/SignUp';
 import RegisterDrinkShop from '../../Page/RegisterDrinkShop';
 import UserInformation from '../../Page/UserInformation';
 import SignIn from '../../Page/SignIn';
-import ViewDetail from '../../Page/ViewDetail';
 
 function AppRoutes() {
     return (
@@ -30,7 +29,6 @@ function AppRoutes() {
                 <Route path="/admin/manage" element={<Manager />} />
                 <Route path="/admin/manage/content" element={<Content />} />
                 <Route path="/admin/confirm" element={<Confirm />} />
-                <Route path="/admin/stores/:id" element={<ViewDetail />} />
             </Route>
         </Routes>
     );
