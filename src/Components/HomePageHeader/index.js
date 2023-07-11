@@ -39,7 +39,7 @@ function HomePageHeader() {
                                     <div className="" tabIndex="-1" {...attrs}>
                                         <div className="card" style={{ width: '10rem' }}>
                                             <ul className="list-group list-group-flush">
-                                                <NavLink exact to="/user/information">
+                                                <NavLink exact to="/userInfo">
                                                     <li
                                                         className="list-group-item pt-0 pb-0"
                                                         style={{ color: '#000', textDecoration: 'none' }}

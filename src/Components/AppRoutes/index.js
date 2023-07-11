@@ -20,7 +20,7 @@ function AppRoutes() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signIn" element={<SignIn />} />
                 <Route index element={<UserHomePage />} />
-                <Route path="/user/information" element={<UserInformation />} />
+                <Route path="/userInfo" element={<UserInformation />} />
             </Route>
 
             {/* Define admin routes here */}

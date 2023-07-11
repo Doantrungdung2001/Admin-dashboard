@@ -1,4 +1,4 @@
-import { faCheck, faMinus, faPenToSquare, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCheck, faMinus, faPenToSquare, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 
@@ -86,6 +86,9 @@ function UserInformation() {
 
     return (
         <>
+            <NavLink exact to="/">
+                <FontAwesomeIcon icon={faArrowLeft} className="ml-4 mt-4 text-dark" />
+            </NavLink>
             <div className="container p-0">
                 <div className="row mt-4">
                     <div className="col-4">
