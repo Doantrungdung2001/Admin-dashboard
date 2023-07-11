@@ -93,11 +93,11 @@ function UserHomePage() {
             }
         });
 
-        // if (filterStatus.isReviewed) {
-        //     getFilteredStores.sort((a, b) => {
-        //         return b.avg_rating - a.avg_rating;
-        //     });
-        // }
+        if (filterStatus.isReviewed) {
+            getFilteredStores.sort((a, b) => {
+                return b.avg_rating - a.avg_rating;
+            });
+        }
 
         setFilterStores(getFilteredStores);
     }, [filterStatus, stores]);

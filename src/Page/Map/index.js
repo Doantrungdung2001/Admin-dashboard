@@ -71,8 +71,8 @@ function Map({ stores, userPosition, setUserPosition }) {
     const onLoad = React.useCallback(
         function callback(map) {
             // This is just an example of getting and using the map instance!!! don't just blindly copy!
-            const bounds = new window.google.maps.LatLngBounds(userPosition);
-            map.fitBounds(bounds);
+            // const bounds = new window.google.maps.LatLngBounds(userPosition);
+            // map.fitBounds(bounds);
 
             setMap(map);
         },
@@ -114,7 +114,7 @@ function Map({ stores, userPosition, setUserPosition }) {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={userPosition}
-                zoom={15}
+                zoom={14}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
                 onClick={(e) => {
