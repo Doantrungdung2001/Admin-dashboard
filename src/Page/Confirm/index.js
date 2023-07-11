@@ -140,7 +140,7 @@ function Confirm() {
 
         try {
             await axios.patch(
-                `http://localhost:8000/api/stores/${record.id}/status`,
+                `${process.env.REACT_APP_BACKEND_API_URL}/stores/${record.id}/status`,
                 { status: 'accepted' },
                 {
                     headers: { 'Content-Type': 'application/json' },
@@ -158,7 +158,7 @@ function Confirm() {
         // Xử lý logic khi button được click
         try {
             await axios.patch(
-                `http://localhost:8000/api/stores/${record.id}/status`,
+                `${process.env.REACT_APP_BACKEND_API_URL}/stores/${record.id}/status`,
                 { status: 'rejected' },
                 {
                     headers: { 'Content-Type': 'application/json' },
