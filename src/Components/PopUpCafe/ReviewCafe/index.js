@@ -108,7 +108,10 @@ function ReviewCafe({ id, isJapanese }) {
                     </div>
                     <div className="d-flex justify-content-between">
                         <div>
-                            <input type="file" onChange={handleImageUpload} name="myFile" />
+                            <label className="btn btn-info">
+                                <i className="fa fa-image"></i>画像をアップロードする
+                                <input className="d-none" type="file" name="image" onChange={handleImageUpload} />
+                            </label>
                             {image && <img src={image} alt="Uploaded" style={{ width: '40px', height: '40px' }} />}
                         </div>
                         <button className={classesBtn} onClick={handleData}>
